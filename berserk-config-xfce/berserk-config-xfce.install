@@ -1,0 +1,52 @@
+## Colors ----------------------------
+
+# Text Reset
+Color_Off='\033[0m'
+
+# Regular Colors
+Black='\033[0;30m' Red='\033[0;31m' Green='\033[0;32m' Yellow='\033[0;33m'
+Blue='\033[0;34m' Purple='\033[0;35m' Cyan='\033[0;36m' White='\033[0;37m'
+
+## -----------------------------------
+
+change_theme() {
+  echo -e ${Blue}"\n[*] Applying ${Purple}${1}${Blue} theme for LightDM..."${Color_Off}
+  sed -i -e "s|background =.*|background = $1|g" /etc/lightdm/lightdm-gtk-greeter.conf.new
+  sed -i -e "s|theme-name =.*|theme-name = $2|g" /etc/lightdm/lightdm-gtk-greeter.conf.new
+  sed -i -e "s|default-user-image =.*|default-user-image = $3|g" /etc/lightdm/lightdm-gtk-greeter.conf.new
+  cp /etc/lightdm/lightdm-gtk-greeter.conf.new /etc/lightdm/lightdm-gtk-greeter.conf
+  if [[ "$?" == 0 ]]; then
+    echo -e ${Green}"[+] Theme applied successfully."${Color_Off}
+  else
+    echo -e ${Red}"[!] Failed to apply new theme.\n"${Color_Off}
+  fi
+}
+
+update_font_cache() {
+  sudo fc-cache
+  fc-cache
+  echo -e ${Green}"[+] Font cache updated successfully."${Color_Off}
+}
+
+post_install() {
+  change_theme '/usr/share/backgrounds/xfce/berserkarch-1.png' 'Kali-Dark' '/usr/share/backgrounds/xfce/profile.jpg'
+  update_font_cache
+  echo ">>>"
+  echo ">>> Berserk Arch Openbox configuration has been installed."
+  echo ">>>"
+  echo ">>> If you are a new user, this config will be applied automatically."
+  echo ">>>"
+  echo ">>> If you are an existing user and want to apply the new default theme,"
+  echo ">>> you can copy the files with the following command:"
+  echo ">>>"
+  echo ">>> cp -r /etc/skel/.config/openbox ~/.config/"
+  echo ">>> cp -r /etc/skel/.config/kitty ~/.config/"
+  echo ">>> cp -r /etc/skel/.config/polybar ~/.config/"
+  echo ">>>"
+  echo ">>> (Warning: This will overwrite your existing Openbox configuration.)"
+  echo ">>>"
+}
+
+post_upgrade() {
+  post_install
+}

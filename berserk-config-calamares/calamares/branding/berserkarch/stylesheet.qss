@@ -1,0 +1,281 @@
+/*
+
+A branding component can ship a stylesheet (like this one)
+which is applied to parts of the Calamares user-interface.
+In principle, all parts can be styled through CSS.
+Missing parts should be filed as issues.
+
+The IDs are based on the object names in the C++ code.
+You can use the Debug Dialog to find out object names:
+  - Open the debug dialog
+  - Choose tab *Tools*
+  - Click *Widget Tree* button
+The list of object names is printed in the log.
+
+Documentation for styling Qt Widgets through a stylesheet
+can be found at
+    https://doc.qt.io/qt-5/stylesheet-examples.html
+    https://doc.qt.io/qt-5/stylesheet-reference.html
+In Calamares, styling widget classes is supported (e.g.
+using `QComboBox` as a selector).
+
+This example stylesheet has all the actual styling commented out.
+The examples are not exhaustive.
+
+*/
+
+/* ########## MAIN APPLICATION WINDOW ########## */
+
+#mainApp {
+}
+
+#mainText{
+	font : bold 16px;
+}
+
+#sidebarApp {
+
+}
+
+#logoApp {
+}
+
+#sidebarMenuApp {
+	padding: 3px;
+	background-color: #292F34;
+}
+
+QWidget {
+	font: 14px;
+}
+
+QTextEdit, QListView {
+}
+QDialogButtonBox {
+}
+QAbstractSpinBox {
+}
+QListWidget::item:alternate {
+}
+
+
+#debugButton {
+	font: bold 8px;
+	color: #FFFFFF;
+}
+
+
+/* ########## TOOLTIP ########## */
+
+
+
+QPushButton {
+    font : 14px;
+}
+
+QDialogButtonBox {
+	dialogbuttonbox-buttons-have-icons: 0;
+}
+
+
+/* ########## QLIST VIEW ########## */
+
+QListView {
+		font: 14px;
+}
+
+
+/* ########## QLINE EDIT ########## */
+
+QLineEdit#LE_TestKeyboard {
+	font: 14px;
+}
+
+QLineEdit#m_passphraseLineEdit, QLineEdit#vgName,
+QLineEdit#m_confirmLineEdit {
+	font: 14px;
+}
+
+QLineEdit#textBoxUserVerifiedPassword, QLineEdit#textBoxVerifiedRootPassword {
+	font: 14px;
+}
+
+QLineEdit#textBoxFullName, QLineEdit#textBoxLoginName, QLineEdit#textBoxHostName,
+QLineEdit#textBoxUserPassword, QLineEdit#textBoxRootPassword {
+	font: 14px;
+}
+
+#textBoxFullName, #textBoxLoginName, #textBoxHostName, #textBoxUserPassword,
+#textBoxRootPassword, #textBoxAutoLogin, #vgName {
+	font: 14px;
+}
+
+#textBoxUserVerifiedPassword, #textBoxVerifiedRootPassword,
+#LE_TestKeyboard, #m_confirmLineEdit, #m_passphraseLineEdit {
+	font: 14px;
+}
+
+/* ##########PARTITION ########## */
+
+#partResizerWidget {
+	font: 14px;
+}
+
+/* ########## PAGE_USERSETUP ########## */
+
+ #labelWhatIsYourName {
+	font: 14px;
+}
+ #textBoxFullName {
+	font: 14px;
+}
+ #labelFullName {
+	font: 14px;
+}
+ #labelFullNameError {
+	font: 14px;
+}
+ #username_label_2 {
+	font: 14px;
+}
+ #textBoxLoginName {
+	font: 14px;
+}
+ #labelUsername {
+	font: 14px;
+}
+ #labelUsernameError {
+	font: 14px;
+}
+ #hostname_label_2 {
+	font: 14px;
+}
+ #textBoxHostName {
+	font: 14px;
+}
+ #labelHostname {
+	font: 14px;
+}
+ #labelHostnameError {
+	font: 14px;
+}
+ #password_label_2 {
+	font: 14px;
+}
+ #textBoxUserPassword {
+	font: 14px;
+}
+ #textBoxUserVerifiedPassword {
+	font: 14px;
+}
+ #labelUserPassword {
+	font: 14px;
+}
+ #labelUserPasswordError {
+	font: 14px;
+}
+ #checkBoxRequireStrongPassword {
+	font: 14px;
+}
+ #checkBoxDoAutoLogin {
+	font: 14px;
+}
+ #checkBoxReusePassword {
+	font: 14px;
+}
+ #labelChooseRootPassword {
+	font: 14px;
+}
+ #textBoxRootPassword {
+	font: 14px;
+}
+ #textBoxVerifiedRootPassword {
+	font: 14px;
+}
+ #labelRootPassword {
+	font: 14px;
+}
+ #labelRootPasswordError {
+	font: 14px;
+}
+
+/* ########## COMBO BOX ########## */
+
+QComboBox {
+	font: 14px;
+}
+
+#mountPointComboBox::drop-down {
+	font: 14px;
+}
+
+/* ########## SPIN BOX ########## */
+
+QSpinBox {
+	font: 14px;
+}
+
+QLineEdit {
+	font: 14px;
+}
+
+/* ########## TREE VIEW ########## */
+
+QTreeView {
+	font: 14px;
+	show-decoration-selected: 0;
+}
+
+QTreeView::item {
+	padding: 2px;
+}
+
+QTreeView::branch:has-siblings:!adjoins-item {
+}
+QTreeView::branch:has-siblings:adjoins-item {
+}
+QTreeView::branch:!has-children:!has-siblings:adjoins-item {
+}
+QTreeView::branch:has-children:!has-siblings:closed,
+QTreeView::branch:closed:has-children:has-siblings {
+}
+QTreeView::branch:open:has-children:!has-siblings,
+QTreeView::branch:open:has-children:has-siblings  {
+}
+
+/* ########## CHECK BOX ########## */
+
+QCheckBox {
+}
+QCheckBox::indicator:unchecked {
+}
+QCheckBox::indicator:checked {
+}
+QItemSelectionModel::Select {
+}
+
+/* ########## HEADER VIEW ########## */
+
+QHeaderView::section {
+  font : 16px;
+}
+
+#debugButton {
+	background-color: none;
+	font: 12px;
+	color: #edecf0;
+  height: 32px;
+  border: none;
+}
+
+#debugButton:hover {
+	color: #ff7f7f;
+}
+
+#aboutButton {
+	background-color: none;
+	font: 12px;
+	color: #edecf0;
+  height: 32px;
+  border: none;
+}

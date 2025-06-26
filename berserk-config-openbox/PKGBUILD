@@ -1,0 +1,31 @@
+# Maintainer: Gaurav Raj (@thehackersbrain) <me@thehackersbrain.xyz>
+
+pkgname=berserk-config-openbox
+pkgver=1.9.8
+pkgrel=1
+pkgdesc="Default Openbox configuration for Berserk Arch"
+arch=('any')
+url="https://github.com/thehackersbrain/berserk-config-openbox"
+license=('GPL3')
+# depends=('openbox')
+depends=()
+
+source=('berserk-config-openbox::git+https://github.com/thehackersbrain/berserk-config-openbox.git')
+sha256sums=('SKIP')
+
+install="$pkgname.install"
+
+package() {
+  install -d "${pkgdir}/etc/skel/.config"
+  cp -r "${srcdir}/berserk-config-openbox/openbox" "${pkgdir}/etc/skel/.config/"
+  chmod 755 "${pkgdir}/etc/skel/.config/openbox/autostart"
+  cp -r "${srcdir}/berserk-config-openbox/kitty" "${pkgdir}/etc/skel/.config/"
+  cp -r "${srcdir}/berserk-config-openbox/polybar" "${pkgdir}/etc/skel/.config/"
+  chmod 755 "${pkgdir}/etc/skel/.config/polybar/launch.sh"
+  cp -r "${srcdir}/berserk-config-openbox/sublime-text" "${pkgdir}/etc/skel/.config/"
+  install -d "${pkgdir}/usr/share/xsessions/"
+  install -Dm644 "${srcdir}/berserk-config-openbox/berserk.desktop" "${pkgdir}/usr/share/xsessions/berserk.desktop"
+  install -Dm644 "${srcdir}/berserk-config-openbox/berserk-xfce.desktop" "${pkgdir}/usr/share/xsessions/berserk-xfce.desktop"
+  install -d "${pkgdir}/etc/sddm.conf.d"
+  install -Dm644 "${srcdir}/berserk-config-openbox/sddm-default.conf" "${pkgdir}/etc/sddm.conf.d/default.conf"
+}

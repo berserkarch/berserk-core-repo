@@ -1,0 +1,20 @@
+# Maintainer: Gaurav Raj (@thehackersbrain) <me@thehackersbrain.xyz>
+
+pkgname=berserk-grub-theme
+pkgver=0.1.0
+pkgrel=3
+pkgdesc="Default grub2 bootloader theme for Berserk Arch"
+arch=('any')
+url="https://github.com/thehackersbrain/vigarch-core-repo/"
+license=('GPL3')
+depends=('grub')
+options=(!strip !emptydirs)
+install='theme.install'
+
+prepare() {
+  cp -af ../files/. "$srcdir"
+}
+
+package() {
+  (find berserk -type f -exec install -Dm 644 "{}" "$pkgdir/usr/share/grub/themes/{}" \;)
+}

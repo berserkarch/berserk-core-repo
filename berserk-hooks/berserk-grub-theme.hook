@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = berserk-grub-theme
+
+[Action]
+Description = Add Berserk Arch specific config.
+When = PostTransaction
+Exec = /usr/bin/berserk-hooks-runner grub-theme

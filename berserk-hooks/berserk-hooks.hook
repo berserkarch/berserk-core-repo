@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = berserk-hooks
+
+[Action]
+Description = Update Berserk Arch specific hooks.
+When = PostTransaction
+Exec = /usr/bin/berserk-hooks-runner

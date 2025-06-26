@@ -1,0 +1,86 @@
+#!/bin/bash
+
+# Run eos hooks related commands.
+
+Lsb_release() {
+  local file=/etc/lsb-release
+
+  if [ -z "$(grep "^DISTRIB_CODENAME=" $file)" ]; then
+    # add missing DISTRIB_CODENAME=
+    echo "DISTRIB_CODENAME=${quote}rolling${quote}" >>$file
+  fi
+  sed -i $file \
+    -e "s|^DISTRIB_ID=.*|DISTRIB_ID=${quote}Berserk Arch${quote}|" \
+    -e "s|^DISTRIB_CODENAME=.*|DISTRIB_CODENAME=${quote}rolling${quote}|" \
+    -e "s|^DISTRIB_DESCRIPTION=.*|DISTRIB_DESCRIPTION=${quote}Berserk Arch${quote}|" \
+    -e "s|^DISTRIB_RELEASE=\"\(.*\)\"|DISTRIB_RELEASE=${quote}\1${quote}|"
+}
+
+Os_release() {
+  local file=/usr/lib/os-release
+  # local eosfile=/usr/lib/endeavouros-release
+  local eosfile=/usr/lib/berserkarch-release
+
+  # Get URLs from the EndeavourOS web site!
+  local home=https://berserkarch.github.io/
+  local doc=https://berserkarch.github.io/wiki/
+  local support=https://berserkarch.github.io/support/
+  local bugs=https://berserkarch.github.io/issues/
+  local privacy=https://berserkarch.github.io/privacy-policy
+
+  sed -i $file \
+    -e "s|^NAME=.*|NAME=${quote}Berserk Arch${quote}|" \
+    -e "s|^PRETTY_NAME=.*|PRETTY_NAME=${quote}Berserk Arch${quote}|" \
+    -e "s|^HOME_URL=.*|HOME_URL=${quote}$home${quote}|" \
+    -e "s|^DOCUMENTATION_URL=.*|DOCUMENTATION_URL=${quote}$doc${quote}|" \
+    -e "s|^SUPPORT_URL=.*|SUPPORT_URL=${quote}$support${quote}|" \
+    -e "s|^BUG_REPORT_URL=.*|BUG_REPORT_URL=${quote}$bugs${quote}|" \
+    -e "s|^ID=.*|ID=${quote}berserkarch${quote}|" \
+    -e "s|^ID_LIKE=.*|ID_LIKE=${quote}arch${quote}|" \
+    -e "s|^PRIVACY_POLICY_URL=.*|PRIVACY_POLICY_URL=${quote}$privacy${quote}|" \
+    -e "s|^ANSI_COLOR=\"\(.*\)\"|ANSI_COLOR=${quote}\1${quote}|"
+  # -e "s|^LOGO=.*|LOGO=${quote}endeavouros${quote}|" \
+
+  if [ -z "$(grep "^ID_LIKE=" $file)" ] && [ -n "$(grep "^ID=" $file)" ]; then
+    # add missing ID_LIKE=
+    sed -i $file -e "/^ID=/a \ID_LIKE=${quote}arch${quote}"
+  fi
+  if [ -r $eosfile ]; then
+    # fix BUILD_ID for EndeavourOS
+    local buildid="$(grep "^VERSION=" $eosfile | awk '{print $1}' | cut -d '=' -f 2)"
+    sed -i $file -e "s|^BUILD_ID=.*|BUILD_ID=${quote}$buildid${quote}|"
+  fi
+}
+
+Grub_theme() {
+  sed -i -e "s|#GRUB_THEME=.*|GRUB_THEME=\"/usr/share/grub/themes/berserk/theme.txt\"|g" /etc/default/grub
+  update-grub
+}
+
+Plymouth_theme() {
+  plymouth-set-default-theme -R berserk
+}
+
+Issues() {
+  sed -i 's|Arch|Berserk Arch|g' /etc/issue /usr/share/factory/etc/issue
+}
+
+Main() {
+  local hookname="$1"
+  local quote="'"
+  quote='\"'
+
+  case "$hookname" in
+  os-release) Os_release ;;
+  lsb-release) Lsb_release ;;
+  grub-theme) Grub_theme ;;
+  plymouth-theme) Plymouth_theme ;;
+  "")
+    Os_release
+    Lsb_release
+    Issues
+    ;;
+  esac
+}
+
+Main "$@"

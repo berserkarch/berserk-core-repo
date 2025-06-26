@@ -1,0 +1,13 @@
+berserkconfig="usr/share/berserk-arch"
+
+## -----------------------------------
+
+post_install() {
+  mkdir -p "/usr/lib/firefox/distribution/"
+  cp "/$berserkconfig/firefox/"* "/usr/lib/firefox/distribution/"
+  echo -e "Installation is completed..."
+}
+
+post_upgrade() {
+  post_install
+}
