@@ -29,7 +29,7 @@ update_font_cache() {
 }
 
 post_install() {
-  change_theme '/usr/share/backgrounds/xfce/berserkarch-1.png' 'Kali-Dark' '/usr/share/backgrounds/xfce/profile.jpg'
+  change_theme '/usr/share/backgrounds/xfce/berserkarch.png' 'Kali-Dark' '/usr/share/backgrounds/xfce/profile.jpg'
   update_font_cache
   echo ">>>"
   echo ">>> Berserk Arch Openbox configuration has been installed."
