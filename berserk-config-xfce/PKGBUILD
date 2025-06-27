@@ -2,7 +2,7 @@
 
 pkgname=berserk-config-xfce
 pkgver=0.5.4
-pkgrel=2
+pkgrel=3
 pkgdesc="Default XFCE configuration for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/berserk-config-xfce"
@@ -45,7 +45,7 @@ package() {
   install -Dm644 "${srcdir}/berserk-config-xfce/berserk-environment" "${pkgdir}/etc/berserk-environment"
   mkdir -p "${pkgdir}/usr/share/backgrounds/xfce/"
   cp "${srcdir}/berserk-config-xfce/arch.png" "${pkgdir}/usr/share/backgrounds/xfce/arch.png"
-  cp "${srcdir}/berserk-config-xfce/berserkarch-1.png" "${pkgdir}/usr/share/backgrounds/xfce/berserkarch-1.png"
+  cp "${srcdir}/berserk-config-xfce/berserkarch.png" "${pkgdir}/usr/share/backgrounds/xfce/berserkarch.png"
   cp "${srcdir}/berserk-config-xfce/profile.jpg" "${pkgdir}/usr/share/backgrounds/xfce/profile.jpg"
   mkdir -p "${pkgdir}/etc/xdg/autostart/"
   install -Dm644 "${srcdir}/berserk-config-xfce/polybar.desktop" "${pkgdir}/etc/xdg/autostart/polybar.desktop"
