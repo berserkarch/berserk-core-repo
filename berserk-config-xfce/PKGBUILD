@@ -2,7 +2,7 @@
 
 pkgname=berserk-config-xfce
 pkgver=0.5.4
-pkgrel=4
+pkgrel=5
 pkgdesc="Default XFCE configuration for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/berserk-config-xfce"
