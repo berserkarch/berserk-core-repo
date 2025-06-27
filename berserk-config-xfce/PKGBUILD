@@ -2,14 +2,14 @@
 
 pkgname=berserk-config-xfce
 pkgver=0.5.4
-pkgrel=1
+pkgrel=2
 pkgdesc="Default XFCE configuration for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/berserk-config-xfce"
 license=('GPL3')
 depends=()
 
-source=('berserk-config-xfce::git+https://github.com/thehackersbrain/berserk-config-xfce.git')
+source=('berserk-config-xfce::git+https://gitlab.com/berserkarch/beserk-config-src/berserk-config-xfce.git')
 sha256sums=('SKIP')
 berserkconfig="usr/share/berserk-arch"
 
