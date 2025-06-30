@@ -1,0 +1,20 @@
+# Maintainer: Gaurav Raj (@thehackersbrain) <me@thehackersbrain.xyz>
+
+pkgname=berserk-keyring
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="The GPG keyring for the berserkarch-core repository"
+arch=('any')
+url="https://github.com/berserkarch/berserk-core/tree/main/berserk-keyring"
+license=('GPL3')
+depends=()
+
+source=()
+sha256sums=()
+
+noextract=()
+
+package() {
+  install -d "${pkgdir}/usr/share/pacman/keyrings/"
+  cp "${startdir}/files/berserk.asc" "${pkgdir}/usr/share/pacman/keyrings/${pkgname}.asc"
+}
