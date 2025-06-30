@@ -2,19 +2,20 @@
 
 pkgname=berserk-keyring
 pkgver=0.1.0
-pkgrel=3
+pkgrel=4
 pkgdesc="The GPG keyring for the berserkarch-core repository"
 arch=('any')
 url="https://github.com/berserkarch/berserk-core/tree/main/berserk-keyring"
 license=('GPL3')
 depends=()
 
-source=()
-sha256sums=()
+source=('files/berserk-keyring.install' 'files/berserk-keyring.gpg')
+sha256sums=('SKIP', 'SKIP')
 
-noextract=()
+install=$pkgname.install
 
 package() {
   install -d "${pkgdir}/usr/share/pacman/keyrings/"
-  cp "${startdir}/files/berserk.asc" "${pkgdir}/usr/share/pacman/keyrings/${pkgname}.asc"
+  # cp "${startdir}/files/berserk.asc" "${pkgdir}/usr/share/pacman/keyrings/${pkgname}.asc"
+  install -Dm755 "${pkgdir}/usr/share/pacman/keyrings/${pkgname}.gpg"
 }

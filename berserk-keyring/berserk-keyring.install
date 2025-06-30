@@ -1,0 +1,13 @@
+post_install() {
+  pacman-key --init
+  pacman-key --add /usr/share/pacman/keyrings/berserk-keyring.gpg
+  pacman-key --lsign-key B024DCEFADEF4328B5E3A848E7E0F2B78484DACF
+  pacman-key --populate
+}
+
+post_upgrade() {
+  pacman-key --init
+  pacman-key --add /usr/share/pacman/keyrings/berserk-keyring.gpg
+  pacman-key --lsign-key B024DCEFADEF4328B5E3A848E7E0F2B78484DACF
+  pacman-key --populate
+}
