@@ -2,10 +2,10 @@
 
 pkgname=berserk-mirrorlist
 pkgver=0.1.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Berserk Arch mirrorlist"
 arch=('any')
-url=https://gitlab.com/endeavouros-team/PKGBUILDS/tree/master/$pkgname
+url=https://gitlab.com/berserkarch/berserk-packages/berserk-core-src/-/tree/main/$pkgname
 
 license=('GPL3')
 options=(!strip !emptydirs)
@@ -13,8 +13,8 @@ backup=("etc/pacman.d/$pkgname") # keeps the possibly ranked mirrorlist
 
 source=('berserk-mirrorlist')
 
-sha512sums=('SKIP')
+sha512sums=('ebc4f3330eeb8088acade5682668121d27cd040798a62e3f1843b57d9196373e2efb8857d6fe607e6b6e1b8c32f5347e5998954bc90d472d8dd2418ea0fd9678')
 
 package() {
-    install -Dm644 "$srcdir/$pkgname" "$pkgdir/etc/pacman.d/$pkgname"
+  install -Dm644 "$srcdir/$pkgname" "$pkgdir/etc/pacman.d/$pkgname"
 }

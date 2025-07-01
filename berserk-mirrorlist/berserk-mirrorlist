@@ -7,11 +7,19 @@
 ###     [berserkarch-core]
 ###     SigLevel = Required DatabaseOptional
 ###     Include = /etc/pacman.d/berserk-mirrorlist
+#
+###     [berserkarch-aur]
+###     SigLevel = Required DatabaseOptional
+###     Include = /etc/pacman.d/berserk-mirrorlist
+#
+###     [berserkarch-extra]
+###     SigLevel = Required DatabaseOptional
+###     Include = /etc/pacman.d/berserk-mirrorlist
 ######################################################
 
 ## Gitlab
 # Server = https://mirror.b-interactive.com.au/endeavouros/repo/$repo/$arch
-Server = https://gitlab.com/berserkarch/berserk-packages/berserk-pkg-core/-/raw/main/repo
+Server = https://gitlab.com/berserkarch/berserk-packages/$repo/-/raw/main/$arch
 
 ## Github
-Server = https://raw.github.com/berserkarch/berserk-pkg-repo/main/repo
+Server = https://raw.github.com/berserkarch/$repo/main/$arch
