@@ -1,4 +1,4 @@
-![Berserk Extra SRC](https://placehold.co/800x200/282a36/f8f8f2?text=Berserk+Extra+SRC)
+![Berserk Core SRC](https://placehold.co/800x200/282a36/f8f8f2?text=Berserk+Core+SRC)
 
 ## Installation
 
