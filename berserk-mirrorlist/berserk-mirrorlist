@@ -1,0 +1,17 @@
+######################################################
+####                                              ####
+###      Berserk Arch Repository Mirrorlist       ###
+####                                              ####
+######################################################
+#### Entry in file /etc/pacman.conf:
+###     [berserkarch-core]
+###     SigLevel = Required DatabaseOptional
+###     Include = /etc/pacman.d/berserk-mirrorlist
+######################################################
+
+## Gitlab
+# Server = https://mirror.b-interactive.com.au/endeavouros/repo/$repo/$arch
+Server = https://gitlab.com/berserkarch/berserk-packages/berserk-pkg-core/-/raw/main/repo
+
+## Github
+Server = https://raw.github.com/berserkarch/berserk-pkg-repo/main/repo

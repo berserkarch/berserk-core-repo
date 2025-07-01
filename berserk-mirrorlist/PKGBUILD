@@ -1,0 +1,20 @@
+# Maintainer: Gaurav Raj (@thehackersbrain) <me@thehackersbrain.xyz>
+
+pkgname=berserk-mirrorlist
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Berserk Arch mirrorlist"
+arch=('any')
+url=https://gitlab.com/endeavouros-team/PKGBUILDS/tree/master/$pkgname
+
+license=('GPL3')
+options=(!strip !emptydirs)
+backup=("etc/pacman.d/$pkgname") # keeps the possibly ranked mirrorlist
+
+source=('berserk-mirrorlist')
+
+sha512sums=('SKIP')
+
+package() {
+    install -Dm644 "$srcdir/$pkgname" "$pkgdir/etc/pacman.d/$pkgname"
+}
