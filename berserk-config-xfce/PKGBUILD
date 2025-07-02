@@ -2,7 +2,7 @@
 
 pkgname=berserk-config-xfce
 pkgver=0.5.4
-pkgrel=8
+pkgrel=9
 pkgdesc="Default XFCE configuration for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/berserk-config-xfce"
@@ -54,7 +54,7 @@ package() {
   mkdir -p "${pkgdir}/etc/lightdm/"
   install -Dm644 "${srcdir}/kali-themes/etc/lightdm/lightdm-gtk-greeter.conf" "${pkgdir}/etc/lightdm/lightdm-gtk-greeter.conf.new"
   cp -r "${srcdir}/berserk-config-xfce/fonts/" "${pkgdir}/usr/share/fonts/"
-  cp "${srcdir}/berserk-config-xfce/.tmux.conf" "${pkgdir}/etc/skel/"
+  # cp "${srcdir}/berserk-config-xfce/.tmux.conf" "${pkgdir}/etc/skel/"
 
   cp -r "${pkgdir}/etc/skel/" "${pkgdir}/${berserkconfig}/home/"
 
