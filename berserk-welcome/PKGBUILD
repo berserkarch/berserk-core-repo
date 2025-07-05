@@ -1,0 +1,26 @@
+# Maintainer: Gaurav Raj (@thehackersbrain) <me@thehackersbrain.xyz>
+
+pkgname=berserk-welcome
+pkgver=0.1.0
+pkgrel=2
+pkgdesc="Berserk Arch Welcome App"
+arch=('any')
+url="https://github.com/berserkarch/berserk-config-src/berserk-welcome"
+license=('GPL3')
+depends=()
+
+source=('berserk-welcome::git+https://gitlab.com/berserkarch/beserk-config-src/berserk-welcome.git')
+sha256sums=('SKIP')
+
+install="$pkgname.install"
+
+appsrc="usr/share/berserk-welcome"
+
+package() {
+  install -Dm755 "${srcdir}/berserk-welcome/berserk-welcome" "${pkgdir}/usr/local/bin/berserk-welcome"
+  install -Dm644 "${srcdir}/berserk-welcome/berserk-welcome.desktop" "${pkgdir}/usr/share/applications/berserk-welcome.desktop"
+  install -Dm644 "${srcdir}/berserk-welcome/berserkarch-app.svg" "${pkgdir}/usr/share/icons/hicolor/scalable/apps/berserkarch-app.svg"
+  install -Dm644 "${srcdir}/berserk-welcome/berserk-welcome.desktop" "${pkgdir}/etc/xdg/autostart/berserk-welcome.desktop"
+  install -d "${pkgdir}/${appsrc}/"
+  cp -r "${srcdir}/berserk-welcome/src/." "${pkgdir}/${appsrc}/"
+}
