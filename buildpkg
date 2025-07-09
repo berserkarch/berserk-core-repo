@@ -142,7 +142,7 @@ def build_package(package_dir, outpath):
             capture_output=True,
         )
 
-        print("  - Successfully built and installed package from {package_dir}.")
+        print(f"  - Successfully built and installed package from {package_dir}.")
         print("  - Makepkg stdout:\n", process.stdout)
 
         print("Moving packages file into output directory...")
