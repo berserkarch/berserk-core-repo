@@ -2,7 +2,7 @@
 
 pkgname=berserk-keyring
 pkgver=0.1.0
-pkgrel=5
+pkgrel=6
 pkgdesc="The GPG keyring for the berserkarch-core repository"
 arch=('any')
 url="https://github.com/berserkarch/berserk-core/tree/main/berserk-keyring"

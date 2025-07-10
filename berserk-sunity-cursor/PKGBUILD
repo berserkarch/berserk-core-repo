@@ -3,7 +3,7 @@
 pkgname=berserk-sunity-cursor
 _pkgname=Sunity-cursors
 pkgver=0.1.3
-pkgrel=2
+pkgrel=3
 pkgdesc="Cursor theme using a custom color palette and based on Breeze and Radioactive cursors themes."
 arch=('any')
 url="https://github.com/thehackersbrain/${_pkgname}"
