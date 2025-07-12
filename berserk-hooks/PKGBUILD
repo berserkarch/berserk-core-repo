@@ -1,8 +1,8 @@
 # Maintainer: Gaurav Raj (@thehackersbrain) <me@thehackersbrain.xyz>
 
 pkgname=berserk-hooks
-pkgver=0.1.3
-pkgrel=3
+pkgver=0.1.4
+pkgrel=1
 pkgdesc='Berserk Arch pacman hooks'
 arch=('any')
 license=('GPL3')
@@ -29,7 +29,7 @@ sha512sums=('508eb24db4734b93768b3c8db2477a8282f799bed925ae8b55f89c1ac9c3ece86f6
             'f47df86a5a5a38e54d329a141479fed439f110256497957ec7a15f11aa474e394df28a4684755070808434302f0c133456de7170c741ddac3d75c3d0b4027568'
             'b0cef8624c531792dbd57ccc406f846550645f62e6070ee226d1251c7fb5cdb6f8631a3dd21fa7c27bcc2f74504bebbe84c398dd6bbbe64da6be35e74983a838'
             '563935c34d416a9918479169a0b04ba4631b513e420e41738c4f5a58b4098b981e28d32477b8c7697e20b3651533b0e8b129ba95e058f293ffb0906521aafdac'
-            'a56b74bdcc5990ec86802e6a89909b6d81aa929fa01f4a1b64a2da58d7fae313d24a7f238159585523c0a724d1503a7f1ee8f124a4f1f531d439b2a9d3d90c34')
+            '463db6e789df1e7fcb21f8cd779445756f46026e83f44ac698247e6622f18f6656ff6b7a64cc58190df25f437b07fb3b62f35bb64f809bebd7d372cae416488a')
 
 package() {
   local hooks=$pkgdir/usr/share/libalpm/hooks

@@ -65,6 +65,10 @@ Issues() {
   sed -i 's|Arch|Berserk Arch|g' /etc/issue /usr/share/factory/etc/issue
 }
 
+Berserk_Apparmor() {
+  systemctl enable --now apparmor.service || systemctl restart apparmor.service
+}
+
 Main() {
   local hookname="$1"
   local quote="'"
@@ -75,6 +79,7 @@ Main() {
   lsb-release) Lsb_release ;;
   grub-theme) Grub_theme ;;
   plymouth-theme) Plymouth_theme ;;
+  berserk-apparmor) Berserk_Apparmor ;;
   "")
     Os_release
     Lsb_release
