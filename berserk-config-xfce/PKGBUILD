@@ -1,7 +1,7 @@
 # Maintainer: Gaurav Raj (@thehackersbrain) <me@thehackersbrain.xyz>
 
 pkgname=berserk-config-xfce
-pkgver=0.5.5
+pkgver=0.5.6
 pkgrel=2
 pkgdesc="Default XFCE configuration for Berserk Arch"
 arch=('any')
@@ -29,14 +29,14 @@ package() {
   install -Dm755 "${srcdir}/berserk-config-xfce/blfix" "${pkgdir}/usr/local/bin/blfix"
   cp -r "${srcdir}/berserk-config-xfce/xfce4" "${pkgdir}/etc/skel/.config/"
   cp -r "${srcdir}/berserk-config-xfce/kitty" "${pkgdir}/etc/skel/.config/"
-  cp -r "${srcdir}/berserk-config-xfce/polybar" "${pkgdir}/etc/skel/.config/"
-  install -Dm755 "${srcdir}/berserk-config-xfce/polybar/launch.sh" "${pkgdir}/usr/local/bin/polybar-launch"
+  # cp -r "${srcdir}/berserk-config-xfce/polybar" "${pkgdir}/etc/skel/.config/"
+  # install -Dm755 "${srcdir}/berserk-config-xfce/polybar/launch.sh" "${pkgdir}/usr/local/bin/polybar-launch"
   cp -r "${srcdir}/berserk-config-xfce/rofi" "${pkgdir}/etc/skel/.config/"
   install -Dm755 "${srcdir}/berserk-config-xfce/rofi/launch.sh" "${pkgdir}/${berserkconfig}/scripts/rlaunch"
   install -Dm755 "${srcdir}/berserk-config-xfce/rofi/powermenu/plaunch.sh" "${pkgdir}/${berserkconfig}/scripts/plaunch"
   install -Dm755 "${srcdir}/berserk-config-xfce/rofi/sshots/slaunch.sh" "${pkgdir}/${berserkconfig}/scripts/slaunch"
   install -Dm755 "${srcdir}/berserk-config-xfce/rofi/claunch" "${pkgdir}/${berserkconfig}/scripts/claunch"
-  chmod 755 "${pkgdir}/etc/skel/.config/polybar/launch.sh"
+  # chmod 755 "${pkgdir}/etc/skel/.config/polybar/launch.sh"
   cp -r "${srcdir}/berserk-config-xfce/sublime-text" "${pkgdir}/etc/skel/.config/"
   mkdir -p "${pkgdir}/usr/share/{themes,icons,qt5ct,qt6ct}/"
   cp -r "${srcdir}/kali-themes/share/themes/" "${pkgdir}/usr/share/themes/"
@@ -48,7 +48,7 @@ package() {
   cp "${srcdir}/berserk-config-xfce/arch.png" "${pkgdir}/usr/share/backgrounds/xfce/arch.png"
   cp "${srcdir}/berserk-config-xfce/berserkarch.png" "${pkgdir}/usr/share/backgrounds/xfce/berserkarch.png"
   cp "${srcdir}/berserk-config-xfce/profile.png" "${pkgdir}/usr/share/backgrounds/xfce/profile.png"
-  install -Dm644 "${srcdir}/berserk-config-xfce/polybar.desktop" "${pkgdir}/etc/xdg/autostart/polybar.desktop"
+  # install -Dm644 "${srcdir}/berserk-config-xfce/polybar.desktop" "${pkgdir}/etc/xdg/autostart/polybar.desktop"
   cp "${srcdir}/berserk-config-xfce/.vimrc" "${pkgdir}/etc/skel/"
   install -Dm644 "${srcdir}/kali-themes/etc/xdg/picom.conf" "${pkgdir}/etc/xdg/picom.conf.new"
   mkdir -p "${pkgdir}/etc/lightdm/"
