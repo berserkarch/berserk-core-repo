@@ -145,6 +145,15 @@ QCheckBox::indicator:checked {
     border-color: #246eed;
 }
 
+/* === TOOLTIPS === */
+QToolTip {
+    color: #eeeeee;               /* Text color */
+    background-color: #222222;    /* Background color */
+    border: 1px solid #555555;    /* Optional: border for visibility */
+    padding: 5px;                 /* Optional: spacing inside */
+    font: 12px;
+}
+
 QLineEdit#LE_TestKeyboard {
 	font: 14px;
 }
