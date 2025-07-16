@@ -26,6 +26,12 @@ The examples are not exhaustive.
 
 /* ########## MAIN APPLICATION WINDOW ########## */
 
+* {
+	color: #f0f0f0;
+	selection-background-color: #434a5f;
+	selection-color: #ffffff;
+}
+
 #mainApp {
 }
 
@@ -34,7 +40,6 @@ The examples are not exhaustive.
 }
 
 #sidebarApp {
-
 }
 
 #logoApp {
@@ -42,11 +47,15 @@ The examples are not exhaustive.
 
 #sidebarMenuApp {
 	padding: 3px;
-	background-color: #292F34;
+	background-color: #181920;
+	color: #ffffff;
 }
+
 
 QWidget {
 	font: 14px;
+	background-color: #23252e;
+	color: #eeeeee;
 }
 
 QTextEdit, QListView {
@@ -86,6 +95,55 @@ QListView {
 
 
 /* ########## QLINE EDIT ########## */
+
+/* === TEXT INPUT BOXES (QLineEdit) === */
+QLineEdit {
+    border: 1px solid #555555;
+    border-radius: 2px;
+    padding: 4px;
+    background-color: #1c1c1c;
+}
+
+QLineEdit:focus {
+    border: 2px solid #246eed; /* Focused = Purple glow */
+}
+
+/* === RADIO BUTTONS === */
+QRadioButton {
+    spacing: 3px;
+    color: #eeeeee;
+}
+
+QRadioButton::indicator {
+    width: 12px;
+    height: 12px;
+    border: 1px solid #888888;
+	border-radius: 7px;
+    background-color: #1a1a1a;
+}
+
+QRadioButton::indicator:checked {
+    background-color: #246eed;
+    border-color: #246eed;
+}
+
+/* === CHECKBOXES === */
+QCheckBox {
+    spacing: 3px;
+    color: #eeeeee;
+}
+
+QCheckBox::indicator {
+    width: 12px;
+    height: 12px;
+    border: 1px solid #888888;
+    background-color: #1a1a1a;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #246eed;
+    border-color: #246eed;
+}
 
 QLineEdit#LE_TestKeyboard {
 	font: 14px;
