@@ -1,6 +1,6 @@
 # Maintainer: Gaurav Raj (@thehackersbrain) <me@thehackersbrain.xyz>
 pkgname=berserk-config-calamares
-pkgver=1.6.8
+pkgver=1.6.9
 pkgrel=1
 pkgdesc="Calamares configuration files and branding for Berserk Arch"
 arch=('any')
