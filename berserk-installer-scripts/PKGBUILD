@@ -1,0 +1,21 @@
+# Maintainer: Gaurav Raj (@thehackersbrain) <me@thehackersbrain.xyz>
+
+pkgname=berserk-install-scripts
+pkgver=0.1.0
+pkgrel=1
+pkgdesc='Berserk Arch Install Scripts'
+arch=('any')
+url="https://github.com/berserkarch/berserk-core-src"
+license=('GPL3')
+source=('chrooted_desktop.sh' 'chrooted_post_install.sh' 'post_install.sh')
+sha512sums=('SKIP'
+            'SKIP'
+            'SKIP')
+
+package() {
+	local bin="$pkgdir"/usr/bin
+	
+	install -Dm 755 chrooted_desktop.sh 			"$bin"/chrooted_desktop.sh
+	install -Dm 755 chrooted_post_install.sh 		"$bin"/chrooted_post_install.sh
+	install -Dm 755 post_install.sh 				"$bin"/post_install.sh
+}
