@@ -2,7 +2,7 @@
 
 pkgname=berserk-hooks
 pkgver=0.1.4
-pkgrel=2
+pkgrel=3
 pkgdesc='Berserk Arch pacman hooks'
 arch=('any')
 license=('GPL3')
