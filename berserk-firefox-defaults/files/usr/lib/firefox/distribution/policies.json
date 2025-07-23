@@ -1,57 +1,58 @@
 {
   "policies": {
     "Homepage": {
-        "URL": "https://thehackersbrain.xyz/",
-        "Locked": false,
-        "StartPage": "homepage"
+      "URL": "file:///usr/share/berserk-arch/startpage.html",
+      "Locked": false,
+      "StartPage": "homepage"
     },
     "FirefoxHome": {
-        "Search": true,
-        "TopSites": true,
-        "SponsoredTopSites": false,
-        "Highlights": false,
-        "Pocket": false,
-        "SponsoredPocket": false,
-        "Snippets": false,
-        "Locked": false
+      "Search": true,
+      "TopSites": true,
+      "SponsoredTopSites": false,
+      "Highlights": false,
+      "Pocket": false,
+      "SponsoredPocket": false,
+      "Snippets": false,
+      "Locked": false
     },
     "ExtensionSettings": {
-        "*": {
-            "installation_mode": "normal_installed"
-        },
-        "uBlock0@raymondhill.net": {
-            "installation_mode": "normal_installed",
-            "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi",
-            "default_area": "navbar",
-            "private_browsing": true
-        },
-        "addon@darkreader.org": {
-            "installation_mode": "normal_installed",
-            "install_url": "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi",
-            "default_area": "navbar",
-            "private_browsing": true
-        },
-        "foxyproxy@eric.h.jung": {
-            "installation_mode": "normal_installed",
-            "install_url": "https://addons.mozilla.org/firefox/downloads/latest/foxyproxy-standard/latest.xpi",
-            "default_area": "navbar",
-            "private_browsing": true
-        },
-        "wappalyzer@crunchlabz.com": {
-            "installation_mode": "normal_installed",
-            "install_url": "https://addons.mozilla.org/firefox/downloads/latest/wappalyzer/latest.xpi",
-            "default_area": "navbar",
-            "private_browsing": true
-        }
+      "*": {
+        "installation_mode": "normal_installed"
+      },
+      "uBlock0@raymondhill.net": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi",
+        "default_area": "navbar",
+        "private_browsing": true
+      },
+      "addon@darkreader.org": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi",
+        "default_area": "navbar",
+        "private_browsing": true
+      },
+      "foxyproxy@eric.h.jung": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/foxyproxy-standard/latest.xpi",
+        "default_area": "navbar",
+        "private_browsing": true
+      },
+      "wappalyzer@crunchlabz.com": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/wappalyzer/latest.xpi",
+        "default_area": "navbar",
+        "private_browsing": true
+      }
     },
     "DisableFirefoxStudies": true,
     "DisableTelemetry": true,
     "DisablePocket": true,
     "Permissions": {
-        "Default": {
-            "geo": "block",
-            "notifications": "block"
-        }
+      "Default": {
+        "geo": "block",
+        "notifications": "block"
+      }
     }
   }
 }
+
