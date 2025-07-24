@@ -17,9 +17,17 @@ Lsb_release() {
 }
 
 Os_release() {
-  local file=/usr/lib/os-release
-  # local eosfile=/usr/lib/endeavouros-release
-  local eosfile=/usr/lib/berserkarch-release
+  local file="/etc/os-release"
+  [ -e "/usr/bin/os-release" ] && file="/usr/lib/os-release"
+
+  # if [ -e "/usr/lib/os-release"]; then
+  #   local file="/usr/lib/os-release"
+  # else
+  #   local file="/etc/os-release"
+
+  # local file=/usr/lib/os-release
+
+  local bosfile=/usr/lib/berserkarch-release
 
   # Get URLs from the EndeavourOS web site!
   local home=https://berserkarch.github.io/
@@ -45,7 +53,7 @@ Os_release() {
     # add missing ID_LIKE=
     sed -i $file -e "/^ID=/a \ID_LIKE=${quote}arch${quote}"
   fi
-  if [ -r $eosfile ]; then
+  if [ -r $bosfile ]; then
     # fix BUILD_ID for EndeavourOS
     local buildid="$(grep "^VERSION=" $eosfile | awk '{print $1}' | cut -d '=' -f 2)"
     sed -i $file -e "s|^BUILD_ID=.*|BUILD_ID=${quote}$buildid${quote}|"
