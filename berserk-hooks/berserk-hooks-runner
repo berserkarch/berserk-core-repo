@@ -1,12 +1,9 @@
 #!/bin/bash
 
-# Run eos hooks related commands.
-
 Lsb_release() {
   local file=/etc/lsb-release
 
   if [ -z "$(grep "^DISTRIB_CODENAME=" $file)" ]; then
-    # add missing DISTRIB_CODENAME=
     echo "DISTRIB_CODENAME=${quote}rolling${quote}" >>$file
   fi
   sed -i $file \
@@ -29,12 +26,11 @@ Os_release() {
 
   local bosfile=/usr/lib/berserkarch-release
 
-  # Get URLs from the EndeavourOS web site!
-  local home=https://berserkarch.github.io/
-  local doc=https://berserkarch.github.io/wiki/
-  local support=https://berserkarch.github.io/support/
-  local bugs=https://berserkarch.github.io/issues/
-  local privacy=https://berserkarch.github.io/privacy-policy
+  local home=https://berserkarch.xyz/
+  local doc=https://wiki.berserkarch.xyz/
+  local support=https://berserkarch.xyz/support/
+  local bugs=https://berserkarch.xyz/issues/
+  local privacy=https://berserkarch.xyz/privacy-policy
 
   sed -i $file \
     -e "s|^NAME=.*|NAME=${quote}Berserk Arch${quote}|" \
@@ -47,14 +43,12 @@ Os_release() {
     -e "s|^ID_LIKE=.*|ID_LIKE=${quote}arch${quote}|" \
     -e "s|^PRIVACY_POLICY_URL=.*|PRIVACY_POLICY_URL=${quote}$privacy${quote}|" \
     -e "s|^ANSI_COLOR=\"\(.*\)\"|ANSI_COLOR=${quote}\1${quote}|"
-  # -e "s|^LOGO=.*|LOGO=${quote}endeavouros${quote}|" \
 
   if [ -z "$(grep "^ID_LIKE=" $file)" ] && [ -n "$(grep "^ID=" $file)" ]; then
     # add missing ID_LIKE=
     sed -i $file -e "/^ID=/a \ID_LIKE=${quote}arch${quote}"
   fi
   if [ -r $bosfile ]; then
-    # fix BUILD_ID for EndeavourOS
     local buildid="$(grep "^VERSION=" $eosfile | awk '{print $1}' | cut -d '=' -f 2)"
     sed -i $file -e "s|^BUILD_ID=.*|BUILD_ID=${quote}$buildid${quote}|"
   fi
