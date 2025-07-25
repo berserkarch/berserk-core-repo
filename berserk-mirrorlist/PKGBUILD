@@ -2,7 +2,7 @@
 
 pkgname=berserk-mirrorlist
 pkgver=0.1.0
-pkgrel=4
+pkgrel=5
 pkgdesc="Berserk Arch mirrorlist"
 arch=('any')
 url=https://gitlab.com/berserkarch/berserk-packages/berserk-core-src/-/tree/main/$pkgname

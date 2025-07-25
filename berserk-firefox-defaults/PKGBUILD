@@ -1,7 +1,7 @@
 # Maintainer: Gaurav Raj (@thehackersbrain) <me@thehackersbrain.xyz>
 pkgname=berserk-firefox-defaults
 pkgver=0.1.2
-pkgrel=1
+pkgrel=2
 pkgdesc="Default browser configurations and branding for Berserk Arch"
 arch=('any')
 depends=('firefox')
