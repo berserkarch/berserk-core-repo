@@ -4,7 +4,7 @@
 pkgname=berserk-default-themes
 pkgver=0.1.0
 pkgrel=1
-pkgdesc='Berserk Arch pacman hooks'
+pkgdesc='Default theme setup for Berserk Arch'
 arch=('any')
 license=('GPL3')
 url=https://gitlab.com/berserkarch/berserk-packages/berserk-core-src/-/tree/main/$pkgname
