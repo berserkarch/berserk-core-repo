@@ -1,52 +1,32 @@
 # Maintainer: Gaurav Raj (@thehackersbrain) <me@thehackersbrain.xyz>
 
 pkgname=berserk-config-xfce
-pkgver=0.5.6
-pkgrel=6
+pkgver=0.5.7
+pkgrel=2
 pkgdesc="Default XFCE configuration for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/berserk-config-xfce"
+_url=https://gitlab.com/berserkarch/berserk-packages/berserk-core/-/raw/main/$pkgname
 license=('GPL3')
 depends=()
 
-source=('berserk-config-xfce::git+https://gitlab.com/berserkarch/beserk-config-src/berserk-config-xfce.git')
-sha256sums=('SKIP')
+source=(
+  'https://gitlab.com/kalilinux/packages/kali-themes/-/raw/kali/master/etc/xdg/picom.conf'
+  'https://gitlab.com/kalilinux/packages/kali-themes/-/raw/kali/master/etc/lightdm/lightdm-gtk-greeter.conf'
+)
+
+sha256sums=('SKIP' 'SKIP')
 berserkconfig="usr/share/berserk-arch"
 
 install="$pkgname.install"
 
-prepare() {
-  cd "${srcdir}"
-  git clone https://gitlab.com/kalilinux/packages/kali-themes.git
-}
-
 package() {
   install -d "${pkgdir}/etc/skel/.config"
   install -d "${pkgdir}/${berserkconfig}/home"
-  install -d "${pkgdir}/${berserkconfig}/scripts"
-  mkdir -p "${pkgdir}/etc/xdg/autostart/"
-  install -Dm755 "${srcdir}/berserk-config-xfce/bupdate" "${pkgdir}/usr/local/bin/bupdate"
-  install -Dm755 "${srcdir}/berserk-config-xfce/blfix" "${pkgdir}/usr/local/bin/blfix"
-  cp -r "${srcdir}/berserk-config-xfce/xfce4" "${pkgdir}/etc/skel/.config/"
-  cp -r "${srcdir}/berserk-config-xfce/kitty" "${pkgdir}/etc/skel/.config/"
-  cp -r "${srcdir}/berserk-config-xfce/sublime-text" "${pkgdir}/etc/skel/.config/"
-  # mkdir -p "${pkgdir}/usr/share/{themes,icons,qt5ct,qt6ct}/"
-  # cp -r "${srcdir}/kali-themes/share/themes/" "${pkgdir}/usr/share/themes/"
-  # cp -r "${srcdir}/kali-themes/share/icons/" "${pkgdir}/usr/share/icons/"
-  # cp -r "${srcdir}/kali-themes/share/qt5ct/" "${pkgdir}/usr/share/qt5ct/"
-  # cp -r "${srcdir}/kali-themes/share/qt6ct/" "${pkgdir}/usr/share/qt6ct/"
-  install -Dm644 "${srcdir}/berserk-config-xfce/berserk-environment" "${pkgdir}/etc/berserk-environment"
-  mkdir -p "${pkgdir}/usr/share/backgrounds/xfce/"
-  cp "${srcdir}/berserk-config-xfce/arch.png" "${pkgdir}/usr/share/backgrounds/xfce/arch.png"
-  cp "${srcdir}/berserk-config-xfce/berserkarch.png" "${pkgdir}/usr/share/backgrounds/xfce/berserkarch.png"
-  cp "${srcdir}/berserk-config-xfce/profile.png" "${pkgdir}/usr/share/backgrounds/xfce/profile.png"
-  cp "${srcdir}/berserk-config-xfce/.vimrc" "${pkgdir}/etc/skel/"
-  install -Dm644 "${srcdir}/kali-themes/etc/xdg/picom.conf" "${pkgdir}/etc/xdg/picom.conf.new"
-  mkdir -p "${pkgdir}/etc/lightdm/"
-  install -Dm644 "${srcdir}/kali-themes/etc/lightdm/lightdm-gtk-greeter.conf" "${pkgdir}/etc/lightdm/lightdm-gtk-greeter.conf.new"
-  cp -r "${srcdir}/berserk-config-xfce/fonts/" "${pkgdir}/usr/share/fonts/"
-  cp -r "${srcdir}/berserk-config-xfce/qt5ct/" "${pkgdir}/etc/xdg/qt5ct/"
-  cp -r "${srcdir}/berserk-config-xfce/qt6ct/" "${pkgdir}/etc/xdg/qt6ct/"
+
+  install -Dm644 "${srcdir}/lightdm-gtk-greeter.conf" "${pkgdir}/etc/lightdm/lightdm-gtk-greeter.conf.new"
+  install -Dm644 "${srcdir}/picom.conf" "${pkgdir}/etc/xdg/picom.conf.new"
+  cp -r "${startdir}/xfce4" "${pkgdir}/etc/skel/.config/"
 
   cp -r "${pkgdir}/etc/skel/" "${pkgdir}/${berserkconfig}/home/"
 }

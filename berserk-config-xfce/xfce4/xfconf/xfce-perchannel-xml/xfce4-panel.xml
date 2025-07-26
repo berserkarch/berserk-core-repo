@@ -1,0 +1,16 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<channel name="xfce4-panel" version="1.0">
+  <property name="panels" type="array">
+    <value type="int" value="0"/>
+    <property name="panel-0" type="empty">
+      <property name="position" type="string" value="p=12;x=840;y=1071"/>
+      <property name="size" type="uint" value="16"/>
+      <property name="length" type="double" value="1"/>
+      <property name="icon-size" type="uint" value="0"/>
+      <property name="enter-opacity" type="uint" value="0"/>
+      <property name="leave-opacity" type="uint" value="0"/>
+    </property>
+  </property>
+  <property name="configver" type="int" value="2"/>
+</channel>
