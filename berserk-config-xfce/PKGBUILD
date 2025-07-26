@@ -2,7 +2,7 @@
 
 pkgname=berserk-config-xfce
 pkgver=0.5.6
-pkgrel=4
+pkgrel=5
 pkgdesc="Default XFCE configuration for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/berserk-config-xfce"
@@ -31,11 +31,11 @@ package() {
   cp -r "${srcdir}/berserk-config-xfce/kitty" "${pkgdir}/etc/skel/.config/"
   # cp -r "${srcdir}/berserk-config-xfce/polybar" "${pkgdir}/etc/skel/.config/"
   # install -Dm755 "${srcdir}/berserk-config-xfce/polybar/launch.sh" "${pkgdir}/usr/local/bin/polybar-launch"
-  cp -r "${srcdir}/berserk-config-xfce/rofi" "${pkgdir}/etc/skel/.config/"
-  install -Dm755 "${srcdir}/berserk-config-xfce/rofi/launch.sh" "${pkgdir}/${berserkconfig}/scripts/rlaunch"
-  install -Dm755 "${srcdir}/berserk-config-xfce/rofi/powermenu/plaunch.sh" "${pkgdir}/${berserkconfig}/scripts/plaunch"
-  install -Dm755 "${srcdir}/berserk-config-xfce/rofi/sshots/slaunch.sh" "${pkgdir}/${berserkconfig}/scripts/slaunch"
-  install -Dm755 "${srcdir}/berserk-config-xfce/rofi/claunch" "${pkgdir}/${berserkconfig}/scripts/claunch"
+  # cp -r "${srcdir}/berserk-config-xfce/rofi" "${pkgdir}/etc/skel/.config/"
+  # install -Dm755 "${srcdir}/berserk-config-xfce/rofi/launch.sh" "${pkgdir}/${berserkconfig}/scripts/rlaunch"
+  # install -Dm755 "${srcdir}/berserk-config-xfce/rofi/powermenu/plaunch.sh" "${pkgdir}/${berserkconfig}/scripts/plaunch"
+  # install -Dm755 "${srcdir}/berserk-config-xfce/rofi/sshots/slaunch.sh" "${pkgdir}/${berserkconfig}/scripts/slaunch"
+  # install -Dm755 "${srcdir}/berserk-config-xfce/rofi/claunch" "${pkgdir}/${berserkconfig}/scripts/claunch"
   # chmod 755 "${pkgdir}/etc/skel/.config/polybar/launch.sh"
   cp -r "${srcdir}/berserk-config-xfce/sublime-text" "${pkgdir}/etc/skel/.config/"
   mkdir -p "${pkgdir}/usr/share/{themes,icons,qt5ct,qt6ct}/"
@@ -59,19 +59,4 @@ package() {
   # cp "${srcdir}/berserk-config-xfce/.tmux.conf" "${pkgdir}/etc/skel/"
 
   cp -r "${pkgdir}/etc/skel/" "${pkgdir}/${berserkconfig}/home/"
-
-  # cp -r "${srcdir}/berserk-config-xfce/xfce4" "${pkgdir}/${berserkconfig}/home/.config/"
-  # cp -r "${srcdir}/berserk-config-xfce/kitty" "${pkgdir}/${berserkconfig}/home/.config/"
-  # cp -r "${srcdir}/berserk-config-xfce/polybar" "${pkgdir}/${berserkconfig}/home/.config/"
-  # cp -r "${srcdir}/berserk-config-xfce/rofi" "${pkgdir}/${berserkconfig}/home/.config/"
-  # cp -r "${srcdir}/berserk-config-xfce/sublime-text" "${pkgdir}/${berserkconfig}/home/.config/"
-  # cp "${srcdir}/berserk-config-xfce/.vimrc" "${pkgdir}/${berserkconfig}/home/"
-
-  # install -d "${pkgdir}/usr/share/xsessions/"<F18>
-  # install -Dm644 "${srcdir}/berserk-config-xfce/berserk.desktop" "${pkgdir}/usr/share/xsessions/berserk.desktop"
-  # install -Dm644 "${srcdir}/berserk-config-xfce/berserk-xfce.desktop" "${pkgdir}/usr/share/xsessions/berserk-xfce.desktop"
-  # install -d "${pkgdir}/etc/sddm.conf.d"
-  # install -Dm644 "${srcdir}/berserk-config-xfce/sddm-default.conf" "${pkgdir}/etc/sddm.conf.d/default.conf"
-  # cp -r "${srcdir}/berserk-config-xfce/xfce" "${pkgdir}/etc/skel/.config/"
-  # chmod 755 "${pkgdir}/etc/skel/.config/xfce/autostart"
 }
