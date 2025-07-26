@@ -2,13 +2,13 @@
 
 pkgname=berserk-config-xfce
 pkgver=0.5.7
-pkgrel=2
+pkgrel=3
 pkgdesc="Default XFCE configuration for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/berserk-config-xfce"
 _url=https://gitlab.com/berserkarch/berserk-packages/berserk-core/-/raw/main/$pkgname
 license=('GPL3')
-depends=()
+depends=('berserk-polybar')
 
 source=(
   'https://gitlab.com/kalilinux/packages/kali-themes/-/raw/kali/master/etc/xdg/picom.conf'
