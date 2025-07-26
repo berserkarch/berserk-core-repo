@@ -13,7 +13,7 @@ source=(
     'berserk-config-xfce::git+https://gitlab.com/berserkarch/beserk-config-src/berserk-config-xfce.git'
 )
 
-sha256sums=('SKIP' 'SKIP' 'SKIP')
+sha256sums=('SKIP')
 berserkconfig="usr/share/berserk-arch"
 
 package() {
