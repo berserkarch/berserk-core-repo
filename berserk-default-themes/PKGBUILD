@@ -1,0 +1,24 @@
+# shellcheck disable=SC2034,SC2154,SC2317
+# Maintainer: Gaurav Raj (@thehackersbrain) <me@thehackersbrain.xyz>
+
+pkgname=berserk-default-themes
+pkgver=0.1.0
+pkgrel=1
+pkgdesc='Berserk Arch pacman hooks'
+arch=('any')
+license=('GPL3')
+url=https://gitlab.com/berserkarch/berserk-packages/berserk-core-src/-/tree/main/$pkgname
+
+depends=()
+
+source=('kali-themes::git+https://gitlab.com/kalilinux/packages/kali-themes.git')
+
+sha512sums=('SKIP')
+
+package() {
+    install -dm755 "${pkgdir}/usr/share"
+    cp -r "${srcdir}/kali-themes/share/themes" "${pkgdir}/usr/share/"
+    cp -r "${srcdir}/kali-themes/share/icons" "${pkgdir}/usr/share/"
+    cp -r "${srcdir}/kali-themes/share/qt5ct" "${pkgdir}/usr/share/"
+    cp -r "${srcdir}/kali-themes/share/qt6ct" "${pkgdir}/usr/share/"
+}
