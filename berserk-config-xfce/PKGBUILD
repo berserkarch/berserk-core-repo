@@ -2,7 +2,7 @@
 
 pkgname=berserk-config-xfce
 pkgver=0.5.6
-pkgrel=5
+pkgrel=6
 pkgdesc="Default XFCE configuration for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/berserk-config-xfce"
@@ -30,11 +30,11 @@ package() {
   cp -r "${srcdir}/berserk-config-xfce/xfce4" "${pkgdir}/etc/skel/.config/"
   cp -r "${srcdir}/berserk-config-xfce/kitty" "${pkgdir}/etc/skel/.config/"
   cp -r "${srcdir}/berserk-config-xfce/sublime-text" "${pkgdir}/etc/skel/.config/"
-  mkdir -p "${pkgdir}/usr/share/{themes,icons,qt5ct,qt6ct}/"
-  cp -r "${srcdir}/kali-themes/share/themes/" "${pkgdir}/usr/share/themes/"
-  cp -r "${srcdir}/kali-themes/share/icons/" "${pkgdir}/usr/share/icons/"
-  cp -r "${srcdir}/kali-themes/share/qt5ct/" "${pkgdir}/usr/share/qt5ct/"
-  cp -r "${srcdir}/kali-themes/share/qt6ct/" "${pkgdir}/usr/share/qt6ct/"
+  # mkdir -p "${pkgdir}/usr/share/{themes,icons,qt5ct,qt6ct}/"
+  # cp -r "${srcdir}/kali-themes/share/themes/" "${pkgdir}/usr/share/themes/"
+  # cp -r "${srcdir}/kali-themes/share/icons/" "${pkgdir}/usr/share/icons/"
+  # cp -r "${srcdir}/kali-themes/share/qt5ct/" "${pkgdir}/usr/share/qt5ct/"
+  # cp -r "${srcdir}/kali-themes/share/qt6ct/" "${pkgdir}/usr/share/qt6ct/"
   install -Dm644 "${srcdir}/berserk-config-xfce/berserk-environment" "${pkgdir}/etc/berserk-environment"
   mkdir -p "${pkgdir}/usr/share/backgrounds/xfce/"
   cp "${srcdir}/berserk-config-xfce/arch.png" "${pkgdir}/usr/share/backgrounds/xfce/arch.png"
