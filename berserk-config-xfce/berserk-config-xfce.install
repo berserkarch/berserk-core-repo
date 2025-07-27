@@ -35,7 +35,8 @@ update_env() {
 post_install() {
   change_theme '/usr/share/backgrounds/xfce/berserkarch.png' 'Kali-Dark' '/usr/share/backgrounds/xfce/profile.png'
   update_font_cache
-  update_env() echo ">>>"
+  update_env
+  echo ">>>"
   echo ">>> Berserk Arch XFCE configuration has been installed."
   echo ">>>"
   echo ">>> If you are a new user, this config will be applied automatically."
