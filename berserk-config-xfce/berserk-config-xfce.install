@@ -28,18 +28,22 @@ update_font_cache() {
   echo -e ${Green}"[+] Font cache updated successfully."${Color_Off}
 }
 
+update_env() {
+  mv /etc/berserk-environment /etc/environment
+}
+
 post_install() {
   change_theme '/usr/share/backgrounds/xfce/berserkarch.png' 'Kali-Dark' '/usr/share/backgrounds/xfce/profile.png'
   update_font_cache
-  echo ">>>"
-  echo ">>> Berserk Arch Openbox configuration has been installed."
+  update_env() echo ">>>"
+  echo ">>> Berserk Arch XFCE configuration has been installed."
   echo ">>>"
   echo ">>> If you are a new user, this config will be applied automatically."
   echo ">>>"
   echo ">>> If you are an existing user and want to apply the new default theme,"
   echo ">>> you can copy the files with the following command:"
   echo ">>>"
-  echo ">>> cp -r /etc/skel/.config/openbox ~/.config/"
+  echo ">>> cp -r /etc/skel/.config/xfce4 ~/.config/"
   echo ">>> cp -r /etc/skel/.config/kitty ~/.config/"
   echo ">>> cp -r /etc/skel/.config/polybar ~/.config/"
   echo ">>>"
