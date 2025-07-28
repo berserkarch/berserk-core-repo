@@ -1,0 +1,6 @@
+---
+type:       "job"
+name:       "pkginstaller"
+interface:  "python"
+script:     "main.py"
+weight:     10
