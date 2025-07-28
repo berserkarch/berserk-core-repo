@@ -2,7 +2,7 @@
 
 pkgname=berserk-config-xfce
 pkgver=0.5.7
-pkgrel=5
+pkgrel=6
 pkgdesc="Default XFCE configuration for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/berserk-config-xfce"
@@ -13,9 +13,10 @@ depends=('berserk-polybar')
 source=(
   'https://gitlab.com/kalilinux/packages/kali-themes/-/raw/kali/master/etc/xdg/picom.conf'
   'https://gitlab.com/kalilinux/packages/kali-themes/-/raw/kali/master/etc/lightdm/lightdm-gtk-greeter.conf'
+  'https://gitlab.com/berserkarch/beserk-config-src/berserk-config-xfce/-/raw/main/berserk-environment'
 )
 
-sha256sums=('SKIP' 'SKIP')
+sha256sums=('SKIP' 'SKIP' 'SKIP')
 berserkconfig="usr/share/berserk-arch"
 
 install="$pkgname.install"
@@ -26,6 +27,7 @@ package() {
 
   install -Dm644 "${srcdir}/lightdm-gtk-greeter.conf" "${pkgdir}/etc/lightdm/lightdm-gtk-greeter.conf.new"
   install -Dm644 "${srcdir}/picom.conf" "${pkgdir}/etc/xdg/picom.conf.new"
+  install -Dm644 "${srcdir}/berserk-environment" "${pkgdir}/etc/berserk-environment"
   cp -r "${startdir}/xfce4" "${pkgdir}/etc/skel/.config/"
 
   cp -r "${pkgdir}/etc/skel/" "${pkgdir}/${berserkconfig}/home/"

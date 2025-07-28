@@ -28,9 +28,14 @@ update_font_cache() {
   echo -e ${Green}"[+] Font cache updated successfully."${Color_Off}
 }
 
+update_env() {
+  mv /etc/berserk-environment /etc/environment
+}
+
 post_install() {
   change_theme '/usr/share/backgrounds/xfce/berserkarch.png' 'Kali-Dark' '/usr/share/backgrounds/xfce/profile.png'
   update_font_cache
+  update_env
   echo ">>>"
   echo ">>> Berserk Arch XFCE configuration has been installed."
   echo ">>>"

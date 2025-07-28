@@ -1,0 +1,8 @@
+QT_QPA_PLATFORMTHEME=qt5ct
+EDITOR=vim
+BROWSER=firefox
+PATH="/usr/share/berserk-arch/scripts"
+GTK_THEME=Kali-Dark
+XCURSOR_THEME="Sunity-Cursors"
+GTK_ICON_THEME=Flat-Remix-Blue-Dark
+
