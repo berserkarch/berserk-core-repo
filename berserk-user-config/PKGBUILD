@@ -2,7 +2,7 @@
 
 pkgname=berserk-user-config
 pkgver=0.1.0
-pkgrel=2
+pkgrel=3
 pkgdesc="Default User configuration for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/berserk-config-xfce"
@@ -10,33 +10,33 @@ license=('GPL3')
 depends=()
 
 source=(
-    'berserk-config-xfce::git+https://gitlab.com/berserkarch/beserk-config-src/berserk-config-xfce.git' 'berserk-environment'
+  'berserk-config-xfce::git+https://gitlab.com/berserkarch/beserk-config-src/berserk-config-xfce.git'
 )
 
-sha256sums=('SKIP' 'SKIP')
+sha256sums=('SKIP')
 berserkconfig="usr/share/berserk-arch"
 install="$pkgname.install"
 
 package() {
-    install -d "${pkgdir}/etc/skel/.config"
-    install -d "${pkgdir}/${berserkconfig}/home"
-    install -d "${pkgdir}/${berserkconfig}/scripts"
-    install -dm755 "${pkgdir}/usr/share"
-    install -d "${pkgdir}/etc/xdg/"
+  install -d "${pkgdir}/etc/skel/.config"
+  install -d "${pkgdir}/${berserkconfig}/home"
+  install -d "${pkgdir}/${berserkconfig}/scripts"
+  install -dm755 "${pkgdir}/usr/share"
+  install -d "${pkgdir}/etc/xdg/"
 
-    install -Dm755 "${srcdir}/berserk-config-xfce/bupdate" "${pkgdir}/usr/local/bin/bupdate"
-    install -Dm755 "${srcdir}/berserk-config-xfce/blfix" "${pkgdir}/usr/local/bin/blfix"
-    cp -r "${srcdir}/berserk-config-xfce/kitty" "${pkgdir}/etc/skel/.config/"
-    cp -r "${srcdir}/berserk-config-xfce/sublime-text" "${pkgdir}/etc/skel/.config/"
-    install -Dm644 "${srcdir}/berserk-environment" "${pkgdir}/etc/berserk-environment"
+  install -Dm755 "${srcdir}/berserk-config-xfce/bupdate" "${pkgdir}/usr/local/bin/bupdate"
+  install -Dm755 "${srcdir}/berserk-config-xfce/blfix" "${pkgdir}/usr/local/bin/blfix"
+  cp -r "${srcdir}/berserk-config-xfce/kitty" "${pkgdir}/etc/skel/.config/"
+  cp -r "${srcdir}/berserk-config-xfce/sublime-text" "${pkgdir}/etc/skel/.config/"
+  install -Dm644 "${srcdir}/berserk-config-xfce/berserk-environment" "${pkgdir}/etc/berserk-environment"
 
-    mkdir -p "${pkgdir}/usr/share/backgrounds/xfce/"
-    cp "${srcdir}/berserk-config-xfce/arch.png" "${pkgdir}/usr/share/backgrounds/xfce/arch.png"
-    cp "${srcdir}/berserk-config-xfce/berserkarch.png" "${pkgdir}/usr/share/backgrounds/xfce/berserkarch.png"
-    cp "${srcdir}/berserk-config-xfce/profile.png" "${pkgdir}/usr/share/backgrounds/xfce/profile.png"
-    cp "${srcdir}/berserk-config-xfce/.vimrc" "${pkgdir}/etc/skel/"
-    cp -r "${srcdir}/berserk-config-xfce/fonts" "${pkgdir}/usr/share/"
-    cp -r "${srcdir}/berserk-config-xfce"/qt{5,6}ct "${pkgdir}/etc/xdg/"
+  mkdir -p "${pkgdir}/usr/share/backgrounds/xfce/"
+  cp "${srcdir}/berserk-config-xfce/arch.png" "${pkgdir}/usr/share/backgrounds/xfce/arch.png"
+  cp "${srcdir}/berserk-config-xfce/berserkarch.png" "${pkgdir}/usr/share/backgrounds/xfce/berserkarch.png"
+  cp "${srcdir}/berserk-config-xfce/profile.png" "${pkgdir}/usr/share/backgrounds/xfce/profile.png"
+  cp "${srcdir}/berserk-config-xfce/.vimrc" "${pkgdir}/etc/skel/"
+  cp -r "${srcdir}/berserk-config-xfce/fonts" "${pkgdir}/usr/share/"
+  cp -r "${srcdir}/berserk-config-xfce"/qt{5,6}ct "${pkgdir}/etc/xdg/"
 
-    cp -r "${pkgdir}/etc/skel/" "${pkgdir}/${berserkconfig}/home/"
+  cp -r "${pkgdir}/etc/skel/" "${pkgdir}/${berserkconfig}/home/"
 }
