@@ -2,7 +2,7 @@
 
 pkgname=berserk-user-config
 pkgver=0.1.0
-pkgrel=3
+pkgrel=4
 pkgdesc="Default User configuration for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/berserk-config-xfce"
@@ -15,7 +15,6 @@ source=(
 
 sha256sums=('SKIP')
 berserkconfig="usr/share/berserk-arch"
-install="$pkgname.install"
 
 package() {
   install -d "${pkgdir}/etc/skel/.config"
@@ -28,7 +27,6 @@ package() {
   install -Dm755 "${srcdir}/berserk-config-xfce/blfix" "${pkgdir}/usr/local/bin/blfix"
   cp -r "${srcdir}/berserk-config-xfce/kitty" "${pkgdir}/etc/skel/.config/"
   cp -r "${srcdir}/berserk-config-xfce/sublime-text" "${pkgdir}/etc/skel/.config/"
-  install -Dm644 "${srcdir}/berserk-config-xfce/berserk-environment" "${pkgdir}/etc/berserk-environment"
 
   mkdir -p "${pkgdir}/usr/share/backgrounds/xfce/"
   cp "${srcdir}/berserk-config-xfce/arch.png" "${pkgdir}/usr/share/backgrounds/xfce/arch.png"
