@@ -7,7 +7,7 @@
 ## ---------------------------------------------------------------------------------------
 
 ## Dirs ----------
-USER=`cat /etc/passwd | grep "/home" | cut -d: -f1 | head -1`
+USER=$(cat /etc/passwd | grep "/home" | cut -d: -f1 | head -1)
 HOME_DIR="/home/${USER}"
 
 ## Remove Package ----------
@@ -28,70 +28,69 @@ _remove_file_if_exist() {
 }
 
 ## Remove Files & Packages ----------
-_remove_for_wm() {
-    for _pkg in "${_pkgs_to_remove[@]}"; do
+_remove_for_de() {
+	for _pkg in "${_pkgs_to_remove[@]}"; do
 		_remove_pkg_if_installed ${_pkg}
 	done
 
-    for _file in "${_files_to_remove[@]}"; do
+	for _file in "${_files_to_remove[@]}"; do
 		_remove_file_if_exist ${_file}
 	done
 }
 
 ## ---------------------------------------------------------------------------------------
 
-## Remove Openbox ----------
-remove_openbox() {
+## Remove GNOME ----------
+remove_gnome() {
 	## List Of Packages To Remove
-	_pkgs_to_remove=('archcraft-openbox'
-					 'openbox'
-					 'perl-linux-desktopfiles'
-					 'xfce4-settings'
-					 'xfce4-terminal'
-					 'nitrogen'
-					 'xmlstarlet'
-					 )
+	pacman -Rns $(pacman -Sgq gnome)
+	_pkgs_to_remove=('d-spy'
+		'dconf-editor'
+		'ghex'
+		'gnome-tweaks'
+		'sysprof'
+		'sddm'
+		'sddm-kcm'
+		'gnome-shell-extensions'
+		'gnome-shell-extension-dash-to-dock'
+		'berserk-config-gnome')
 
 	## List Of File & Dirs To Remove
 	_files_to_remove=("$HOME_DIR"/.config/openbox)
 
 	## Remove Packages, File & Dirs
-	_remove_for_wm
+	_remove_for_de
 }
 
-## Remove Bspwm ----------
-remove_bspwm() {
-	_pkgs_to_remove=('archcraft-bspwm')
+## Remove XFCE ----------
+remove_xfce() {
+	pacman -Rns $(pacman -Sgq xfce4)
+	pacman -Rns $(pacman -Sgq xfce4-goodies)
+	# 'xfce4' 'xfce4-goodies'
+	_pkgs_to_remove=('berserk-rofi' 'berserk-config-xfce')
 	_files_to_remove=("$HOME_DIR"/.config/bspwm)
-	_remove_for_wm
+	_remove_for_de
 }
 
 ## ---------------------------------------------------------------------------------------
 
 ## Install Openbox ----------
-install_openbox() {
-	echo "[*] Installing Openbox Window Manager..."
-	remove_bspwm
+install_gnome() {
+	echo "[*] Installing GNOME DE..."
+	remove_xfce
 }
 
 ## Install Bspwm ----------
-install_bspwm() {
-	echo "[*] Installing Bspwm Window Manager..."
-	remove_openbox
-}
-
-## Install Everything ----------
-install_everything() {
-	echo -e "\nMaking a Sandwich for you!\n"
+install_xfce() {
+	echo "[*] Installing XFCE DE..."
+	remove_gnome
 }
 
 ## ---------------------------------------------------------------------------------------
 
 ## Execute In Target ----------
-if [[ "$1" == '--openbox' ]]; then
-	install_openbox
-elif [[ "$1" == '--bspwm' ]]; then
-	install_bspwm
-elif [[ "$1" == '--everything' ]]; then
-	install_everything
+if [[ "$1" == '--gnome' ]]; then
+	install_gnome
+elif [[ "$1" == '--xfce' ]]; then
+	install_xfce
 fi
