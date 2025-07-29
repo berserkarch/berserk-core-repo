@@ -168,13 +168,13 @@ remove_xfce() {
 install_gnome() {
   echo "[*] Installing GNOME DE..."
   remove_xfce
+  cp /etc/berserk-environment-gnome /etc/environment
 }
 
 ## Install Bspwm ----------
 install_xfce() {
   echo "[*] Installing XFCE DE..."
   remove_gnome
-  cp /etc/berserk-environment-gnome /etc/environment
 }
 
 ## ---------------------------------------------------------------------------------------
