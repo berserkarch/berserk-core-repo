@@ -168,7 +168,11 @@ remove_xfce() {
 install_gnome() {
   echo "[*] Installing GNOME DE..."
   remove_xfce
-  cp /etc/berserk-environment-gnome /etc/environment
+  if [[ -f /etc/berserk-environment-gnome ]]; then
+    cp /etc/berserk-environment-gnome /etc/environment
+  else
+    echo "[!] berserk-environment-gnome not found!"
+  fi
 }
 
 ## Install Bspwm ----------
