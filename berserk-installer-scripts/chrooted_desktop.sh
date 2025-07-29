@@ -109,8 +109,7 @@ remove_gnome() {
 ## Remove XFCE ----------
 remove_xfce() {
   # 'xfce4' 'xfce4-goodies'
-  _pkgs_to_remove(
-    'exo'
+  _pkgs_to_remove=('exo'
     'garcon'
     'xfce4-appfinder'
     'xfce4-panel'
@@ -158,8 +157,7 @@ remove_xfce() {
     'xfce4-whiskermenu-plugin'
     'xfce4-xkb-plugin'
     'berserk-rofi'
-    'berserk-polybar'
-    )
+    'berserk-polybar')
   _files_to_remove=("$HOME_DIR"/.config/xfce4)
   _remove_for_de
 }
