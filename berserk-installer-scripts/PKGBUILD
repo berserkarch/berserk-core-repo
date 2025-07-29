@@ -2,13 +2,13 @@
 
 pkgname=berserk-install-scripts
 pkgver=0.1.0
-pkgrel=6
+pkgrel=7
 pkgdesc='Berserk Arch Install Scripts'
 arch=('any')
 url="https://github.com/berserkarch/berserk-core-src"
 license=('GPL3')
 source=('chrooted_desktop.sh' 'chrooted_post_install.sh' 'post_install.sh')
-sha512sums=('77effde7b3e0726d49377b1683edf5809c403993c04fdb91b373b0d73ebb6415b5998f26ba7654d0a26ba240cbb70f573146d270cadfd652e8fc87b77a21b05a'
+sha512sums=('c568b0160e45d23da0c6471c0d81b3c72c323c44a7ef99273e5d8102e1f95d17c47a06d4dea6b31c5095a99e99e82480d47cec4b410f45ece6804735f656a07f'
             'b0c6f91c3e6a1fae6c6169242fa54e57c6b3a84f53bd5ae641929d57a038f73536fe0248c610c06ec3dbffa42ab4ae9aae50aebfb92897af2ce92cc00102bb86'
             'e6fca01bc684b6800040443f9a333173aad4be8064052c68de8d5e4f66ced7bdfb13b47952b91ea91c8e6dab0861b869f042e3fd27ed51ea0b1d34b7d9c7b764')
 
