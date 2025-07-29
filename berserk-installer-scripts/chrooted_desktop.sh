@@ -15,7 +15,7 @@ _remove_pkg_if_installed() {
   pacman -Q "$1" &>/dev/null
   if [[ "$?" == 0 ]]; then
     echo "[*] Removing package : $1"
-    pacman -Rnscu --noconfirm ${1}
+    pacman -Rnsdd --noconfirm ${1}
   fi
 }
 
@@ -43,71 +43,12 @@ _remove_for_de() {
 ## Remove GNOME ----------
 remove_gnome() {
   ## List Of Packages To Remove
-  _pkgs_to_remove=('baobab'
-    'decibels'
-    'epiphany'
-    'evince'
-    'gdm'
-    'gnome-backgrounds'
-    'gnome-calculator'
-    'gnome-calendar'
-    'gnome-characters'
-    'gnome-clocks'
-    'gnome-color-manager'
-    'gnome-connections'
-    'gnome-console'
-    'gnome-contacts'
-    'gnome-control-center'
-    'gnome-disk-utility'
-    'gnome-font-viewer'
-    'gnome-keyring'
-    'gnome-logs'
-    'gnome-maps'
-    'gnome-menus'
-    'gnome-music'
-    'gnome-remote-desktop'
-    'gnome-session'
-    'gnome-settings-daemon'
-    'gnome-shell'
-    'gnome-software'
-    'gnome-system-monitor'
-    'gnome-text-editor'
-    'gnome-tour'
-    'gnome-user-docs'
-    'gnome-user-share'
-    'gnome-weather'
-    'grilo-plugins'
-    'gvfs'
-    'gvfs-afc'
-    'gvfs-dnssd'
-    'gvfs-goa'
-    'gvfs-google'
-    'gvfs-gphoto2'
-    'gvfs-mtp'
-    'gvfs-nfs'
-    'gvfs-onedrive'
-    'gvfs-smb'
-    'gvfs-wsdd'
-    'loupe'
-    'malcontent'
-    'nautilus'
-    'orca'
-    'rygel'
-    'simple-scan'
-    'snapshot'
-    'sushi'
-    'tecla'
-    'totem'
-    'xdg-desktop-portal-gnome'
-    'xdg-user-dirs-gtk'
-    'yelp'
+  _pkgs_to_remove=('gnome'
     'd-spy'
     'dconf-editor'
     'ghex'
     'gnome-tweaks'
     'sysprof'
-    'sddm'
-    'sddm-kcm'
     'gnome-shell-extensions'
     'gnome-shell-extension-dash-to-dock'
     'berserk-config-gnome')
@@ -121,10 +62,7 @@ remove_gnome() {
 
 ## Remove XFCE ----------
 remove_xfce() {
-  pacman -Rns $(pacman -Sgq xfce4)
-  pacman -Rns $(pacman -Sgq xfce4-goodies)
-  # 'xfce4' 'xfce4-goodies'
-  _pkgs_to_remove=('berserk-rofi' 'berserk-config-xfce')
+  _pkgs_to_remove=('xfce4' 'xfce4-goodies' 'berserk-rofi' 'berserk-config-xfce')
   _files_to_remove=("$HOME_DIR"/.config/bspwm)
   _remove_for_de
 }
