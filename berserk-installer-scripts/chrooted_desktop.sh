@@ -174,6 +174,7 @@ install_gnome() {
 install_xfce() {
   echo "[*] Installing XFCE DE..."
   remove_gnome
+  cp /etc/berserk-environment-gnome /etc/environment
 }
 
 ## ---------------------------------------------------------------------------------------
