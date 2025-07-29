@@ -29,7 +29,7 @@ update_font_cache() {
 }
 
 update_env() {
-  mv /etc/berserk-environment /etc/environment
+  cp /etc/berserk-environment /etc/environment
 }
 
 post_install() {

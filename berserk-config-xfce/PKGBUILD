@@ -2,7 +2,7 @@
 
 pkgname=berserk-config-xfce
 pkgver=0.5.7
-pkgrel=6
+pkgrel=7
 pkgdesc="Default XFCE configuration for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/berserk-config-xfce"
@@ -16,7 +16,9 @@ source=(
   'https://gitlab.com/berserkarch/beserk-config-src/berserk-config-xfce/-/raw/main/berserk-environment'
 )
 
-sha256sums=('SKIP' 'SKIP' 'SKIP')
+sha256sums=('f05d2e93d4266589effcf9abbf6959e78407cb09584c86a1aac18388daf9a688'
+            '78fabf72657c713ec1722b22371ede6c374c73d90a17d12ac9899d694deea0f2'
+            '4478bec46afff9965ce42793d1cf855ee6ae5579cf0b0a77c7a372d58d2c316f')
 berserkconfig="usr/share/berserk-arch"
 
 install="$pkgname.install"
