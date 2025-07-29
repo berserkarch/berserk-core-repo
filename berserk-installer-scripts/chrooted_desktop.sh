@@ -62,7 +62,7 @@ remove_gnome() {
 
 ## Remove XFCE ----------
 remove_xfce() {
-  _pkgs_to_remove=('xfce4' 'xfce4-goodies' 'berserk-rofi' 'berserk-polybar')
+  _pkgs_to_remove=('xfce4' 'xfce4-goodies')
   _files_to_remove=("$HOME_DIR"/.config/xfce4)
   _remove_for_de
 }
