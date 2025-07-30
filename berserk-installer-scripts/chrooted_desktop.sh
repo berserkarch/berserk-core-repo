@@ -156,6 +156,12 @@ remove_xfce() {
     'xfce4-weather-plugin'
     'xfce4-whiskermenu-plugin'
     'xfce4-xkb-plugin'
+    'gnome-contacts'
+    'gnome-maps'
+    'gnome-music'
+    'decibels'
+    'simple-scan'
+    'epiphany'
     'berserk-rofi'
     'berserk-polybar')
   _files_to_remove=("$HOME_DIR"/.config/xfce4)
