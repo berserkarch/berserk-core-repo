@@ -2,7 +2,7 @@
 
 pkgname=berserk-welcome
 pkgver=0.1.0
-pkgrel=5
+pkgrel=6
 pkgdesc="Berserk Arch Welcome App"
 arch=('any')
 url="https://github.com/berserkarch/berserk-config-src/berserk-welcome"
