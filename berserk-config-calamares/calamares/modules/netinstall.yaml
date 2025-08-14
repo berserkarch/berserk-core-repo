@@ -522,3 +522,13 @@
       description: "OWASP ZAP web application security scanner with automated and manual testing capabilities"
     - name: berserk-tools-web
       description: "Distro-provided web exploitation toolkit with automated vulnerability assessment and reporting workflows"
+
+- name: "Utilities"
+  description: "Categorized groups of Tools"
+  hidden: false
+  critical: false
+  selected: false
+  packages:
+    - name: freerdp2
+      description: X11 Remote Desktop Protocol (RDP) client
+      selected: true
