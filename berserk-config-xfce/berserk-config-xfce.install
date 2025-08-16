@@ -29,7 +29,7 @@ update_font_cache() {
 }
 
 post_install() {
-  change_theme '/usr/share/backgrounds/xfce/berserkarch.png' 'Kali-Dark' '/usr/share/backgrounds/xfce/profile.png'
+  change_theme '/usr/share/backgrounds/berserkarch/berserkarch.png' 'BerserkDark' '/usr/share/backgrounds/berserkarch/profile.png'
   update_font_cache
   echo ">>>"
   echo ">>> Berserk Arch XFCE configuration has been installed."
