@@ -1,0 +1,22 @@
+# shellcheck disable=SC2034,SC2154,SC2317
+# Maintainer: Gaurav Raj (@thehackersbrain) <me@thehackersbrain.xyz>
+
+pkgname=berserk-sddm
+pkgver=0.1.0
+pkgrel=2
+pkgdesc="SDDM config for Berserk Arch"
+arch=('any')
+url="https://gitlab.com/berserkarch/berserk-packages/berserk-core-src/-/tree/main/berserk-sddm"
+license=('GPL3')
+depends=('sddm')
+source=()
+sha256sums=()
+install='state.install'
+
+noextract=()
+
+package() {
+  install -Dm644 "${startdir}/sddm/sddm.conf" "${pkgdir}/etc/sddm.conf"
+  install -Dm644 "${startdir}/sddm/autologin.conf" "${pkgdir}/etc/sddm.conf.d/autologin.conf"
+  install -Dm644 "${startdir}/sddm/state.conf" "${pkgdir}/etc/sddm.conf.d/default-state.conf"
+}

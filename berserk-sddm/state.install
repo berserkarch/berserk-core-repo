@@ -1,0 +1,15 @@
+update_state() {
+  cp /etc/sddm.conf.d/default-state.conf /var/lib/sddm/state.conf
+}
+
+post_install() {
+  if [[ -e '/var/lib/sddm/state.conf' ]]; then
+    exit
+  else
+    update_state
+  fi
+}
+
+post_upgrade() {
+  post_install
+}
