@@ -240,6 +240,13 @@ _perform_various_stuff() {
     sed -i -e 's|autologin-session=.*|#autologin-session=openbox|g' "$lightdm_config"
   fi
 
+  sddm_conf='/etc/sddm.conf.d/autologin.conf'
+  if [[ -e "$sddm_conf" ]]; then
+    echo "+---------------------->>"
+    echo "[*] Disabling autologin for lightdm..."
+    rm "$sddm_conf"
+  fi
+
   # Perform various operations
   echo "+---------------------->>"
   echo "[*] Running operations as new user : ${new_user}..."
