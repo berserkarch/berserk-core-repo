@@ -93,8 +93,6 @@ remove_gnome() {
     'ghex'
     'gnome-tweaks'
     'sysprof'
-    'sddm'
-    'sddm-kcm'
     'gnome-shell-extensions'
     'gnome-shell-extension-dash-to-dock'
     'berserk-config-gnome')
