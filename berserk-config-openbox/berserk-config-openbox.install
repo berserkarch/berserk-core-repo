@@ -1,4 +1,9 @@
+update_cursor_theme() {
+  mv /usr/share/icons/default/index.theme.ba /usr/share/icons/default/index.theme
+}
+
 post_install() {
+  update_cursor_theme
   echo ">>>"
   echo ">>> Berserk Arch Openbox configuration has been installed."
   echo ">>>"
