@@ -98,7 +98,7 @@ remove_gnome() {
     'berserk-config-gnome')
 
   ## List Of File & Dirs To Remove
-  _files_to_remove=("$HOME_DIR"/.config/openbox)
+  # _files_to_remove=("$HOME_DIR"/.config/openbox)
 
   ## Remove Packages, File & Dirs
   _remove_for_de
