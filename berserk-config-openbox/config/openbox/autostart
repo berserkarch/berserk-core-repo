@@ -3,10 +3,8 @@
 # --- AUTOSTART SCRIPT FOR BERSERK ARCH ---
 
 # Generate dynamic pipe menu (updates automatically when opened)
-if [ ! -f "$HOME/.config/openbox/menu.xml" ]; then
-  obmenu-generator -p 2>/dev/null
-  openbox --reconfigure &
-fi
+obmenu-generator -p 2>/dev/null
+openbox --reconfigure &
 
 # Start the panel
 # tint2 &
