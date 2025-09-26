@@ -34,9 +34,11 @@ run_rofi() {
 # Execute Command
 run_cmd() {
   if [[ $1 == '--shutdown' ]]; then
-    xfce4-session-logout --halt
+    # xfce4-session-logout --halt
+    systemctl poweroff
   elif [[ $1 == '--reboot' ]]; then
-    xfce4-session-logout --reboot
+    # xfce4-session-logout --reboot
+    systemctl reboot
   elif [[ $1 == '--hibernate' ]]; then
     xfce4-session-logout --hibernate
   elif [[ $1 == '--suspend' ]]; then

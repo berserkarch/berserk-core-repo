@@ -1,6 +1,7 @@
 configuration {
 	modi:                       "drun,run,filebrowser,window";
     show-icons:                 true;
+    icon-theme:                 "Flat-Remix-Blue-Dark";
     display-drun:               "APPS";
     display-run:                "RUN";
     display-filebrowser:        "FILES";

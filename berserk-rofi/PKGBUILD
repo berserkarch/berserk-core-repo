@@ -3,7 +3,7 @@
 
 pkgname=berserk-rofi
 pkgver=0.1.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Calamares configuration files and branding for Berserk Arch"
 arch=('any')
 url="https://gitlab.com/berserkarch/berserk-packages/berserk-core-src/-/tree/main/berserk-rofi"
@@ -16,12 +16,12 @@ noextract=()
 berserkconfig="usr/share/berserk-arch"
 
 package() {
-    install -d "${pkgdir}/etc/skel/.config"
-    cp -r "${startdir}/rofi" "${pkgdir}/etc/skel/.config/"
-    install -Dm755 "${startdir}/rofi/launch.sh" "${pkgdir}/${berserkconfig}/scripts/rlaunch"
-    install -Dm755 "${startdir}/rofi/powermenu/plaunch.sh" "${pkgdir}/${berserkconfig}/scripts/plaunch"
-    install -Dm755 "${startdir}/rofi/sshots/slaunch.sh" "${pkgdir}/${berserkconfig}/scripts/slaunch"
-    install -Dm755 "${startdir}/rofi/claunch" "${pkgdir}/${berserkconfig}/scripts/claunch"
+  install -d "${pkgdir}/etc/skel/.config"
+  cp -r "${startdir}/rofi" "${pkgdir}/etc/skel/.config/"
+  install -Dm755 "${startdir}/rofi/launch.sh" "${pkgdir}/${berserkconfig}/scripts/rlaunch"
+  install -Dm755 "${startdir}/rofi/powermenu/plaunch.sh" "${pkgdir}/${berserkconfig}/scripts/plaunch"
+  install -Dm755 "${startdir}/rofi/sshots/slaunch.sh" "${pkgdir}/${berserkconfig}/scripts/slaunch"
+  install -Dm755 "${startdir}/rofi/claunch" "${pkgdir}/${berserkconfig}/scripts/claunch"
 
-    cp -r "${pkgdir}/etc/skel/" "${pkgdir}/${berserkconfig}/home/"
+  cp -r "${pkgdir}/etc/skel/" "${pkgdir}/${berserkconfig}/home/"
 }
