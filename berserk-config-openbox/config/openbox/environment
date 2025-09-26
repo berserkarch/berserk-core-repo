@@ -1,0 +1,12 @@
+QT_QPA_PLATFORMTHEME=qt5ct
+EDITOR=vim
+BROWSER=firefox
+PATH="$PATH:/usr/share/berserk-arch/scripts:/usr/share/berserkarch/scripts"
+GTK_THEME=BerserkDark-blue
+XCURSOR_THEME="Sunity-Cursors"
+GTK_ICON_THEME=Flat-Remix-Blue-Dark
+export GTK_FONT_NAME="Cantarell 9"
+export GNOME_DESKTOP_INTERFACE_FONT_NAME="Cantarell 9"
+
+export GDK_DPI_SCALE=0.9
+export GDK_SCALE=0.9

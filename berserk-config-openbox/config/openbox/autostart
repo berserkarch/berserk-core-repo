@@ -1,0 +1,47 @@
+#!/bin/sh
+
+# --- AUTOSTART SCRIPT FOR BERSERK ARCH ---
+
+FLAG_FILE="$HOME/.config/openbox/.menu_generated"
+MENU_FILE="$HOME/.config/openbox/menu.xml"
+
+# Generate Openbox menu on the first run only
+if [ ! -f "$FLAG_FILE" ]; then
+  sleep 2
+
+  /usr/bin/mmaker -f --no-legacy --no-debian OpenBox3 >"$MENU_FILE"
+
+  # Check if MenuMaker ran successfully
+  if [ $? -eq 0 ]; then
+    touch "$FLAG_FILE"
+    openbox --reconfigure
+  fi
+fi
+
+# Start the panel
+# tint2 &
+
+# Start the wallpaper manager
+# (while true; do
+#   feh --bg-fill "/usr/share/backgrounds/berserkarch/berserkarch.png"
+#   sleep 10
+# done) &
+# feh --bg-fill "/usr/share/backgrounds/berserkarch/berserkarch.png" &
+xsettingsd &
+xrandr --output Virtual-1 --mode 1920x1080 &
+nitrogen --restore &
+/usr/lib/polkit-kde-authentication-agent-1 &
+
+/usr/bin/spice-vdagent &
+
+## start polybar
+~/.config/polybar/launch.sh &
+pamac-tray &
+firewall-applet &
+/usr/share/berserkarch/conky/scripts/launch.sh & # berserk-conky <- package needs to be installed
+
+## starting dconf to connect to gtk3/4 services
+/usr/lib/dconf-service &
+
+## compositor
+xcompmgr -c -f -F -D 1 &
