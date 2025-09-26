@@ -2,20 +2,10 @@
 
 # --- AUTOSTART SCRIPT FOR BERSERK ARCH ---
 
-FLAG_FILE="$HOME/.config/openbox/.menu_generated"
-MENU_FILE="$HOME/.config/openbox/menu.xml"
-
-# Generate Openbox menu on the first run only
-if [ ! -f "$FLAG_FILE" ]; then
-  sleep 2
-
-  /usr/bin/mmaker -f --no-legacy --no-debian OpenBox3 >"$MENU_FILE"
-
-  # Check if MenuMaker ran successfully
-  if [ $? -eq 0 ]; then
-    touch "$FLAG_FILE"
-    openbox --reconfigure
-  fi
+# Generate dynamic pipe menu (updates automatically when opened)
+if [ ! -f "$HOME/.config/openbox/menu.xml" ]; then
+  obmenu-generator -p 2>/dev/null
+  openbox --reconfigure &
 fi
 
 # Start the panel
