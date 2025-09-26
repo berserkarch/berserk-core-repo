@@ -2,7 +2,7 @@
 
 pkgname=berserk-config-openbox
 pkgver=1.9.9
-pkgrel=1
+pkgrel=2
 pkgdesc="Default Openbox configuration for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/berserk-config-openbox"
@@ -13,10 +13,13 @@ source=()
 sha256sums=()
 
 install="$pkgname.install"
+berserkconfig="usr/share/berserkarch"
 
 package() {
   install -d "${pkgdir}/etc/skel/.config"
   install -dm755 "${pkgdir}/usr/share/themes"
+  install -d "${pkgdir}/${berserkconfig}/home"
+
   cp -r "${startdir}/config/openbox" "${pkgdir}/etc/skel/.config/"
   cp -r "${startdir}/config/nitrogen" "${pkgdir}/etc/skel/.config/"
   cp -r "${startdir}/config/xsettingsd" "${pkgdir}/etc/skel/.config/"
@@ -24,4 +27,6 @@ package() {
   cp -r "${startdir}/config/berserk" "${pkgdir}/usr/share/themes/"
   chmod 755 "${pkgdir}/etc/skel/.config/openbox/autostart"
   chmod 644 "${pkgdir}/etc/skel/.config/openbox/environment"
+
+  cp -r "${pkgdir}/etc/skel/" "${pkgdir}/${berserkconfig}/home/"
 }
