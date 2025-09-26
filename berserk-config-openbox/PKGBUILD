@@ -1,8 +1,8 @@
 # Maintainer: Gaurav Raj (@thehackersbrain) <me@thehackersbrain.xyz>
 
 pkgname=berserk-config-openbox
-pkgver=1.9.8
-pkgrel=9
+pkgver=1.9.9
+pkgrel=1
 pkgdesc="Default Openbox configuration for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/berserk-config-openbox"
