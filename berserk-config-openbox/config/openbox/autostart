@@ -16,13 +16,11 @@ openbox --reconfigure &
 # done) &
 # feh --bg-fill "/usr/share/backgrounds/berserkarch/berserkarch.png" &
 xsettingsd &
-xcompmgr -c -f -F -D 1 &
-nitrogen --restore &
 /usr/lib/polkit-kde-authentication-agent-1 &
-
 /usr/bin/spice-vdagent &
 
 ## compositor
+xcompmgr -c -f -F -D 1 &
 
 ## start polybar
 ~/.config/polybar/launch.sh &
@@ -33,3 +31,4 @@ firewall-applet &
 ## starting dconf to connect to gtk3/4 services
 /usr/lib/dconf-service &
 xrandr --output Virtual-1 --mode 1920x1080 & # optional - remove if using something else
+nitrogen --restore &
