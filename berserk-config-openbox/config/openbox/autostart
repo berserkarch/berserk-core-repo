@@ -17,16 +17,16 @@ openbox --reconfigure &
 # feh --bg-fill "/usr/share/backgrounds/berserkarch/berserkarch.png" &
 xsettingsd &
 /usr/lib/polkit-kde-authentication-agent-1 &
-/usr/bin/spice-vdagent &
+# /usr/bin/spice-vdagent &
 
 ## compositor
 xcompmgr -c -f -F -D 1 &
 
 ## start polybar
-~/.config/polybar/launch.sh &
-pamac-tray &
-firewall-applet &
-/usr/share/berserkarch/conky/scripts/launch.sh & # berserk-conky <- package needs to be installed
+# ~/.config/polybar/launch.sh &
+# pamac-tray &
+# firewall-applet &
+# /usr/share/berserkarch/conky/scripts/launch.sh & # berserk-conky <- package needs to be installed
 
 ## starting dconf to connect to gtk3/4 services
 /usr/lib/dconf-service &
