@@ -73,26 +73,33 @@ remove_xfce() {
   _remove_for_de
 }
 
+## Remove OpenBox ----------
+remove_openbox() {
+  ## Use the top array for packages to remove
+  _pkgs_to_remove=("${openbox_pkgs[@]}")
+  _files_to_remove=("$HOME_DIR"/.config/openbox)
+  _remove_for_de
+}
+
 ## ---------------------------------------------------------------------------------------
 
 ## Install GNOME ----------
 install_gnome() {
   echo "[*] Installing GNOME DE..."
-  remove_xfce
+  remove_openbox
   _install_packages gnome_pkgs
 }
 
 ## Install XFCE ----------
 install_xfce() {
   echo "[*] Installing XFCE DE..."
-  remove_gnome
+  remove_openbox
   _install_packages xfce_pkgs
 }
 
 ## Install XFCE ----------
 install_openbox() {
-  echo "[*] Installing XFCE DE..."
-  _install_packages openbox_pkgs
+  echo "[*] Installing OpenBox WM..."
 }
 
 ## ---------------------------------------------------------------------------------------
