@@ -97,6 +97,7 @@ install_xfce() {
   _install_packages xfce_pkgs
   rm -rf "$HOME_DIR/.config/xfce4"
   cp -r /usr/share/berserkarch/home/ "$HOME_DIR/"
+  sed -i 's|Session=.*|Session=/usr/share/xsessions/xfce.desktop|' /var/share/xsessions/xfce.desktop
 }
 
 ## Install XFCE ----------
