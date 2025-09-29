@@ -96,7 +96,8 @@ install_xfce() {
   remove_openbox
   _install_packages xfce_pkgs
   rm -rf "$HOME_DIR/.config/xfce4"
-  cp -r /usr/share/berserkarch/home/ "$HOME_DIR/"
+  cp -r /usr/share/berserkarch/home/skel/.config "$HOME_DIR/"
+  chown -R $USER:$USER "$HOME_DIR/.config"
   sed -i 's|Session=.*|Session=/usr/share/xsessions/xfce.desktop|' /var/lib/sddm/state.conf
 }
 
