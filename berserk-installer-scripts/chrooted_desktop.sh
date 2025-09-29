@@ -95,6 +95,7 @@ install_xfce() {
   echo "[*] Installing XFCE DE..."
   remove_openbox
   _install_packages xfce_pkgs
+  rm -rf "$HOME_DIR/.config/xfce4"
   cp -r /usr/share/berserkarch/home/ "$HOME_DIR/"
 }
 
