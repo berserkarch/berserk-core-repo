@@ -2,41 +2,18 @@
 
 pkgname=berserk-omz
 pkgver=0.1.0
-pkgrel=7
+pkgrel=8
 pkgdesc="A community-driven framework for managing your zsh configuration."
 arch=('any')
 url='https://github.com/ohmyzsh/ohmyzsh'
 license=('GPL')
-depends=('zsh')
-makedepends=('git')
-optdepends=('ruby: for some plugin functionality'
-  'python: for some plugin functionality'
-  'oh-my-zsh-powerline-theme-git: great theme'
-  'bullet-train-oh-my-zsh-theme-git: better powerline theme'
-  'git: most themes use git (highly recommended but still optional)')
-
-source=("git+https://github.com/robbyrussell/oh-my-zsh.git")
-sha256sums=('SKIP')
-
-prepare() {
-  cd "$srcdir"/oh-my-zsh
-
-  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git custom/plugins/zsh-syntax-highlighting
-  git clone https://github.com/zsh-users/zsh-autosuggestions.git custom/plugins/zsh-autosuggestions
-
-  cp "templates/zshrc.zsh-template" ".zshrc"
-  sed -i -e 's/ZSH_THEME=.*/ZSH_THEME="gentoo"/g' ".zshrc"
-  sed -i -e 's/plugins=.*/plugins=(git z zsh-syntax-highlighting zsh-autosuggestions)/g' ".zshrc"
-  echo 'alias ls=exa' >>".zshrc"
-}
+depends=('curl')
+source=()
+sha256sums=()
+install="$pkgname.install"
 
 package() {
-  cd "$srcdir"/oh-my-zsh
-  mkdir -p "$pkgdir"/etc/skel/.oh-my-zsh
-  cp -r . "$pkgdir"/etc/skel/.oh-my-zsh
-  install -Dm 644 ".zshrc" "$pkgdir"/etc/skel/.zshrc
-  install -Dm 644 "LICENSE.txt" "$pkgdir"/usr/share/licenses/${pkgname}/LICENSE
-  rm "$pkgdir"/etc/skel/.oh-my-zsh/.zshrc
+  :
 }
 
 # vim:set ts=2 sw=2 et:

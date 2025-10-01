@@ -1,0 +1,19 @@
+post_install() {
+  user=$(basename /home/* | head -1)
+  userdir="/home/${user}"
+
+  echo -e "Starting installation for user: ${user}"
+  su $user -c 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${userdir}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+  git clone https://github.com/zsh-users/zsh-autosuggestions.git "${userdir}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+
+  cp "${userdir}/.oh-my-zsh/templates/zshrc.zsh-template" "${userdir}/.zshrc"
+  sed -i -e 's/ZSH_THEME=.*/ZSH_THEME="gentoo"/g' "${userdir}/.zshrc"
+  sed -i -e 's/plugins=.*/plugins=(git z zsh-syntax-highlighting zsh-autosuggestions)/g' "${userdir}/.zshrc"
+  echo 'alias ls=exa' >>"${userdir}/.zshrc"
+
+  cp -r "${userdir}/.oh-my-zsh/" /etc/skel/
+
+  echo -e "Changing default shell to zsh for user: $user"
+  chsh -s /usr/bin/zsh $user
+}
