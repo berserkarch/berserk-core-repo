@@ -2,7 +2,7 @@
 
 pkgname=berserkarch-omz
 pkgver=0.1.0
-pkgrel=1
+pkgrel=2
 pkgdesc="A community-driven framework for managing your zsh configuration."
 arch=('any')
 url='https://github.com/ohmyzsh/ohmyzsh'
@@ -29,6 +29,7 @@ prepare() {
   sed -i -e 's/ZSH_THEME=.*/ZSH_THEME="gentoo"/g' ".zshrc"
   sed -i -e 's/plugins=.*/plugins=(git z zsh-syntax-highlighting zsh-autosuggestions)/g' ".zshrc"
   echo 'alias ls=exa' >>".zshrc"
+  echo 'export PATH="$HOME/.local/bin:$PATH:$GEM_HOME/bin:$HOME/.config/emacs/bin:$ANDROID_HOME/emulator:$ANDROID_HOME/cmdline-tools/latest/bin"' >>".zshrc"
 }
 
 package() {
