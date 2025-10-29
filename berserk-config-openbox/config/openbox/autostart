@@ -14,7 +14,6 @@ openbox --reconfigure &
 #   feh --bg-fill "/usr/share/backgrounds/berserkarch/berserkarch.png"
 #   sleep 10
 # done) &
-# feh --bg-fill "/usr/share/backgrounds/berserkarch/berserkarch.png" &
 xsettingsd &
 /usr/lib/polkit-kde-authentication-agent-1 &
 # /usr/bin/spice-vdagent &
@@ -30,4 +29,5 @@ xcompmgr -c -f -F -D 1 &
 
 ## starting dconf to connect to gtk3/4 services
 /usr/lib/dconf-service &
-nitrogen --restore &
+# nitrogen --restore &
+feh --bg-fill "/usr/share/backgrounds/berserkarch/berserkarch.png" &
