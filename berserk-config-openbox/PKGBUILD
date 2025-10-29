@@ -2,12 +2,12 @@
 
 pkgname=berserk-config-openbox
 pkgver=2.0.1
-pkgrel=4
+pkgrel=5
 pkgdesc="Default Openbox configuration for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/berserk-config-openbox"
 license=('GPL3')
-depends=('openbox' 'berserk-polybar' 'berserk-rofi' 'obconf-qt' 'xcompmgr' 'nitrogen' 'xsettingsd' 'polkit-kde-agent' 'dunst' 'python-pyqt5' 'python-pyqt5-webengine' 'python-pyqt6' 'python-pyqt6-webengine' 'python-xdg')
+depends=('openbox' 'berserk-polybar' 'berserk-rofi' 'obconf-qt' 'xcompmgr' 'nitrogen' 'xsettingsd' 'polkit-kde-agent' 'dunst' 'python-pyqt5' 'python-pyqt5-webengine' 'python-pyqt6' 'python-pyqt6-webengine' 'python-xdg' 'gtkmm')
 
 source=()
 sha256sums=()
