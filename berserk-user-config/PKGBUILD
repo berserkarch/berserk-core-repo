@@ -2,7 +2,7 @@
 
 pkgname=berserk-user-config
 pkgver=0.1.0
-pkgrel=8
+pkgrel=9
 pkgdesc="Default User configuration for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/berserk-config-xfce"
@@ -39,4 +39,5 @@ package() {
   install -Dm644 "${srcdir}/berserk-config-xfce/berserk-environment" "${pkgdir}/etc/berserk-environment"
 
   cp -r "${pkgdir}/etc/skel/" "${pkgdir}/${berserkconfig}/home/"
+  cp -r "${srcdir}/berserk-config-xfce/data/" "${pkgdir}/${berserkconfig}/"
 }
