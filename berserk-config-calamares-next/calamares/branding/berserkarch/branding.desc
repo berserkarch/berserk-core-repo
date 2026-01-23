@@ -1,0 +1,49 @@
+componentName: berserkarch
+
+welcomeStyleCalamares: false
+
+welcomeExpandingLogo: true
+
+# windowExpanding: normal
+windowExpanding: noexpand
+
+windowSize: 1200px,715px
+
+windowPlacement: center
+
+sidebar: widget
+
+navigation: widget
+
+strings:
+    productName:         Berserk Arch
+    shortProductName:    BerserkArch
+    version:             rolling
+    shortVersion:        26.01.20.1
+    versionedName:       Berserk Arch rolling
+    shortVersionedName:  berserkarch rolling
+    bootloaderEntryName: Berserk Arch
+
+images:
+    productLogo:         "berserkarch.svg"
+    productIcon:         "berserkarch.svg"
+    productWelcome:      "worldmap.png"
+    productBanner:       "releaselogo.png"
+    #productWallpaper:    "wallpaper.png"
+
+slideshowAPI: 2
+
+style:
+   SidebarBackground:    "#181920"
+   SidebarText:          "#FFFFFF"
+   SidebarTextCurrent:       "#FFFFFF"
+   SidebarBackgroundCurrent: "#246eed"
+
+slideshow:               "show.qml"
+
+# log feature
+
+uploadServer :
+    type :    "fiche"
+    url :     "http://termbin.com:9999"
+    sizeLimit : -1
