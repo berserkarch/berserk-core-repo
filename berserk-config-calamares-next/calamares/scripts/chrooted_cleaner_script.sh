@@ -33,9 +33,10 @@ _check_internet_connection() {
     case "$_CHROOTED_HAS_CONNECTION" in
         yes) return 0 ;;
         no)  return 1 ;;
-        *)   eos-connection-checker && _CHROOTED_HAS_CONNECTION=yes || _CHROOTED_HAS_CONNECTION=no
-             _check_internet_connection
-             ;;
+        *) ech pass
+        # *)   eos-connection-checker && _CHROOTED_HAS_CONNECTION=yes || _CHROOTED_HAS_CONNECTION=no
+        #      _check_internet_connection
+        #      ;;
     esac
 }
 
