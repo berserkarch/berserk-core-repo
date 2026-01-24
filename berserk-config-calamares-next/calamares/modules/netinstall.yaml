@@ -99,6 +99,10 @@
         - ttf-dejavu
         - ttf-liberation
         - ttf-opensans
+        - adobe-source-code-pro-fonts
+        - terminus-font
+        - ttf-firacode-nerd
+        - ttf-jetbrains-mono-nerd
     - name: Audio
       description: "Audio handling tools apps and libs"
       selected: true
@@ -112,6 +116,16 @@
         - pipewire-alsa
         - pipewire-jack
         - rtkit
+    - name: Virtualization Guest Utilities
+      description: "Tools to imrove integration when running the ISO in a virtual machine."
+      selected: true
+      packages:
+        - cloud-init
+        - hyperv
+        - qemu-guest-agent
+        - spice-vdagent
+        - virtualbox-guest-iso
+        - virtualbox-guest-utils
     - name: Hardware
       description: "Hardware support libs and firmware"
       selected: true
