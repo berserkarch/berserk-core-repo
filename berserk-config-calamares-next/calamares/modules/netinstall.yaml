@@ -16,6 +16,12 @@
         - xorg-xinput
         - xorg-xkill
         - xorg-xrandr
+    - name: "GPU drivers"
+      description: "Graphics hardware drivers"
+      selected: true
+      packages:
+        - xf86-video-amdgpu
+        - xf86-video-ati
     - name: Network
       description: "Network apps drivers and tools"
       selected: true
@@ -132,7 +138,6 @@
       packages:
         - amd-ucode
         - intel-ucode
-
 - name: "Recommended applications selection"
   description: "General tools and applications"
   selected: true
