@@ -172,7 +172,16 @@
     - tldr
     - sed
     - vi
+    - vim
     - wget
+    - pamac
+    - exa
+    - p7zip
+    - zip
+    - apparmor
+    - audit
+    - firewalld
+    - docker
 - name: "Firefox and language package"
   description: "Add firefox and language pack if possible"
   hidden: false
