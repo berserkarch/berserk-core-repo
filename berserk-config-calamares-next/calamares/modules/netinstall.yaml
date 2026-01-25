@@ -114,7 +114,7 @@
         - pipewire-pulse
         - wireplumber
         - pipewire-alsa
-        - pipewire-jack
+        # - pipewire-jack
         - rtkit
     - name: Virtualization Guest Utilities
       description: "Tools to imrove integration when running the ISO in a virtual machine."
