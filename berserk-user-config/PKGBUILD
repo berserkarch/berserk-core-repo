@@ -2,7 +2,7 @@
 
 pkgname=berserk-user-config
 pkgver=0.1.1
-pkgrel=3
+pkgrel=4
 pkgdesc="Default User configuration for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/berserk-config-xfce"
@@ -40,4 +40,6 @@ package() {
 
   cp -r "${pkgdir}/etc/skel/" "${pkgdir}/${berserkconfig}/home/"
   cp -r "${srcdir}/berserk-config-xfce/data/" "${pkgdir}/${berserkconfig}/"
+  mkdir -p "${pkgdir}/sudoers.d/"
+  cp "${srcdir}/berserk-config-xfce/01_pw_feedback" "${pkgdir}/sudoers.d/01_pw_feedback"
 }
