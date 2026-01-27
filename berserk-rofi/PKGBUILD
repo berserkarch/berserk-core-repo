@@ -3,7 +3,7 @@
 
 pkgname=berserk-rofi
 pkgver=0.1.0
-pkgrel=2
+pkgrel=3
 pkgdesc="Calamares configuration files and branding for Berserk Arch"
 arch=('any')
 url="https://gitlab.com/berserkarch/berserk-packages/berserk-core-src/-/tree/main/berserk-rofi"
@@ -13,7 +13,7 @@ source=()
 sha256sums=()
 
 noextract=()
-berserkconfig="usr/share/berserk-arch"
+berserkconfig="usr/share/berserkarch"
 
 package() {
   install -d "${pkgdir}/etc/skel/.config"
