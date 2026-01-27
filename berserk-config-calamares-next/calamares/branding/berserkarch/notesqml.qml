@@ -22,36 +22,53 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.1
 
 Item {
-    width: 740
-    height: 420
+    // Fill parent dimensions
+    anchors.fill: parent
+
+    // Black background for the entire component
+    Rectangle {
+        anchors.fill: parent
+        color: "#23252e"
+    }
 
     Flickable {
         id: flick
         anchors.fill: parent
-        contentHeight: 800
 
+        // Hide scrollbars completely
         ScrollBar.vertical: ScrollBar {
-            id: fscrollbar
-            width: 10
-            policy: ScrollBar.AlwaysOn
+            policy: ScrollBar.AlwaysOff
+        }
+        ScrollBar.horizontal: ScrollBar {
+            policy: ScrollBar.AlwaysOff
         }
 
         TextArea {
             id: intro
-            x: 1
-            y: 0
-            width: parent.width - fscrollbar.width
+            anchors.fill: parent
             font.pointSize: 14
             textFormat: Text.RichText
             antialiasing: true
             activeFocusOnPress: false
             wrapMode: Text.WordWrap
 
+            // Center text both horizontally and vertically
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+
+            color: "white"
+            selectionColor: "#444444"  // Dark gray selection background
+            selectedTextColor: "#ffffff"  // White s
+
+            // Transparent background since parent Item has black background
+            background: Rectangle {
+                color: "transparent"
+            }
+
             text: qsTr("<h3>%1</h3>
             <p>This is a pre-beta release.</p>
             <sub>A very first one even before a pre-release!</sub>"
             ).arg(Branding.string(Branding.VersionedName))
-
         }
     }
 }
