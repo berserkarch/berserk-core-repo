@@ -1,0 +1,42 @@
+# Originally based on the AUR package "dracut-hook" by Leonidas P. <jpegxguy>
+
+pkgname=berserk-dracut
+pkgver=0.1.0
+pkgrel=2
+pkgdesc="Dracut scripts and hooks for Berserk Arch"
+url=https://berserkarch.xyz
+arch=('any')
+license=('BSD')
+backup=('etc/ba-dracut.conf')
+depends=('dracut')
+conflicts=('kernel-install-for-dracut')
+replaces=('dracut')
+provides=('dracut')
+source=("dracut-rebuild"
+  "dracut-install"
+  "dracut-remove"
+  "90-dracut-install.hook"
+  "60-dracut-remove.hook"
+  "ba-dracut.conf"
+  "snapshot-overlay.sh"
+  "module-setup.sh"
+)
+sha256sums=('b6aa785d6e780795a1a70b8f8434a0bd31ac1eff48a0d39de214db6e7c6710fa'
+            'ce9dde586ecb4aa2002130e949a945820c4402d9d0219ccb5d1aaa7db525e272'
+            '88e610beb5c95fa92791a4da0d9bf16edf979b0a52cd1f6325ed03e3c7ba39e3'
+            '3b692fb0122a3367707f4b0dd4fef61f8b7e922bdf0f7462cdeae71a6034c41a'
+            'e79f8e9572c5d1af6052104eac7ff956754f7a191b52b16adf12b65a38e9b4ed'
+            '35ba4b4c82d5cceb6782c75f989bae36ba44ca626905b6db81908c1759eadfb0'
+            '5839318eb2032770a0e01ab347e6b496be7d47e92ddce134b306fc7cd960bf1f'
+            'f6e10566b400beb34a68148cad4cdf60beb6970560557f375c65ffd821b451b3')
+
+package() {
+  install -Dm644 "${srcdir}/90-dracut-install.hook" "${pkgdir}/usr/share/libalpm/hooks/90-dracut-install.hook"
+  install -Dm644 "${srcdir}/60-dracut-remove.hook" "${pkgdir}/usr/share/libalpm/hooks/60-dracut-remove.hook"
+  install -Dm755 "${srcdir}/dracut-install" "${pkgdir}/usr/share/libalpm/scripts/dracut-install"
+  install -Dm755 "${srcdir}/dracut-remove" "${pkgdir}/usr/share/libalpm/scripts/dracut-remove"
+  install -Dm755 "${srcdir}/dracut-rebuild" "${pkgdir}/usr/bin/dracut-rebuild"
+  install -Dm644 "${srcdir}/ba-dracut.conf" "${pkgdir}/etc/ba-dracut.conf"
+  install -Dm755 "${srcdir}/snapshot-overlay.sh" "${pkgdir}/usr/lib/dracut/modules.d/91btrfs-snapshot-overlay/snapshot-overlay.sh"
+  install -Dm755 "${srcdir}/module-setup.sh" "${pkgdir}/usr/lib/dracut/modules.d/91btrfs-snapshot-overlay/module-setup.sh"
+}
