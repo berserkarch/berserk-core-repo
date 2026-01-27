@@ -1,7 +1,7 @@
 # Maintainer: Gaurav Raj (@thehackersbrain) <me@thehackersbrain.xyz>
 pkgname=berserk-firefox-defaults
 pkgver=0.1.2
-pkgrel=2
+pkgrel=3
 pkgdesc="Default browser configurations and branding for Berserk Arch"
 arch=('any')
 depends=('firefox')
@@ -12,7 +12,7 @@ sha256sums=()
 install="configs.install"
 
 noextract=()
-berserkconfig="usr/share/berserk-arch"
+berserkconfig="usr/share/berserkarch"
 
 package() {
   install -d "${pkgdir}/${berserkconfig}/firefox/"

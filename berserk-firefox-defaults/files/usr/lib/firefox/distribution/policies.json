@@ -1,7 +1,7 @@
 {
   "policies": {
     "Homepage": {
-      "URL": "file:///usr/share/berserk-arch/startpage.html",
+      "URL": "file:///usr/share/berserkarch/startpage.html",
       "Locked": false,
       "StartPage": "homepage"
     },
@@ -55,4 +55,3 @@
     }
   }
 }
-
