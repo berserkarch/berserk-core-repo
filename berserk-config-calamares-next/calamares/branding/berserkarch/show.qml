@@ -33,10 +33,10 @@ Presentation
         Rectangle {
             anchors.fill: parent
             border.width: 0
-            /*color: "#2a2e32"*/
+            color: "#23252e"
             Image {
-                id: slide_trust
-                source: "slide-trust.png"
+                id: one
+                source: "slides/1.png"
                 fillMode: Image.PreserveAspectFit
                 anchors.fill: parent
             }
@@ -48,10 +48,10 @@ Presentation
         Rectangle {
             anchors.fill: parent
             border.width: 0
-            /*color: "#2a2e32"*/
+            color: "#23252e"
             Image {
                 id: slide_welcome_app
-                source: "slide-welcome-app.png"
+                source: "slides/2.png"
                 fillMode: Image.PreserveAspectFit
                 anchors.fill: parent
             }
@@ -63,10 +63,10 @@ Presentation
         Rectangle {
             anchors.fill: parent
             border.width: 0
-            /*color: "#2a2e32"*/
+            color: "#23252e"
             Image {
                 id: slide_discover
-                source: "slide-discover.png"
+                source: "slides/3.png"
                 fillMode: Image.PreserveAspectFit
                 anchors.fill: parent
             }
@@ -78,10 +78,25 @@ Presentation
         Rectangle {
             anchors.fill: parent
             border.width: 0
-            /*color: "#2a2e32"*/
+            color: "#23252e"
             Image {
                 id: slide_forum
-                source: "slide-forum.png"
+                source: "slides/4.png"
+                fillMode: Image.PreserveAspectFit
+                anchors.fill: parent
+            }
+        }
+    }
+
+    Slide {
+           anchors.fill: parent
+        Rectangle {
+            anchors.fill: parent
+            border.width: 0
+            color: "#23252e"
+            Image {
+                id: slide_forum
+                source: "slides/5.png"
                 fillMode: Image.PreserveAspectFit
                 anchors.fill: parent
             }
