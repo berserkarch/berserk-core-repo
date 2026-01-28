@@ -10,12 +10,13 @@
       packages:
         - mesa-utils
         - xf86-input-libinput
-        - xorg-xdpyinfo
-        - xorg-server
-        - xorg-xinit
-        - xorg-xinput
-        - xorg-xkill
-        - xorg-xrandr
+        - extra/xorg
+        - extra/xorg-xdpyinfo
+        - extra/xorg-server
+        - extra/xorg-xinit
+        - extra/xorg-xinput
+        - extra/xorg-xkill
+        - extra/xorg-xrandr
     - name: "GPU drivers"
       description: "Graphics hardware drivers"
       selected: true
