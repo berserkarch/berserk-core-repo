@@ -16,93 +16,121 @@ Presentation
     id: presentation
 
     function nextSlide() {
-        console.log("Process is running in the background...");
+        console.log("QML Component (default slideshow) Next slide");
         presentation.goToNextSlide();
     }
 
     Timer {
         id: advanceTimer
-        interval: 60000
-        running: true
+        interval: 5000
+        running: presentation.activatedInCalamares
         repeat: true
         onTriggered: nextSlide()
     }
 
     Slide {
-           anchors.fill: parent
-        Rectangle {
-            anchors.fill: parent
-            border.width: 0
-            color: "#23252e"
-            Image {
-                id: one
-                source: "slides/1.png"
-                fillMode: Image.PreserveAspectFit
-                anchors.fill: parent
-            }
-        }
+
+    anchors.fill: parent
+    anchors.verticalCenterOffset: 0
+
+    Image {
+        id: background1
+        source: "slides/1.png"
+        width: parent.width; height: parent.height
+        verticalAlignment: Image.AlignTop
+        fillMode: Image.Stretch
+        anchors.fill: parent
+    	}
+
+    // Text {
+    //     anchors.horizontalCenter: background1.horizontalCenter
+    //     anchors.top: background1.bottom
+    //     text: "Welcome to"
+    //     wrapMode: Text.WordWrap
+    //     width: presentation.width
+    //     horizontalAlignment: Text.Center
+    // 	}
     }
 
     Slide {
-           anchors.fill: parent
-        Rectangle {
-            anchors.fill: parent
-            border.width: 0
-            color: "#23252e"
-            Image {
-                id: slide_welcome_app
-                source: "slides/2.png"
-                fillMode: Image.PreserveAspectFit
-                anchors.fill: parent
-            }
-        }
+
+    anchors.fill: parent
+    anchors.verticalCenterOffset: 0
+
+    Image {
+        id: background2
+        source: "slides/2.png"
+        width: parent.width; height: parent.height
+        verticalAlignment: Image.AlignTop
+        fillMode: Image.Stretch
+        anchors.fill: parent
+    	}
+
+    // Text {
+    //     anchors.horizontalCenter: background2.horizontalCenter
+    //     anchors.top: background2.bottom
+    //     text: "Berserk Arch Calamares Installer"
+    //     wrapMode: Text.WordWrap
+    //     width: presentation.width
+    //     horizontalAlignment: Text.Center
+    // 	}
     }
+
 
     Slide {
-            anchors.fill: parent
-        Rectangle {
-            anchors.fill: parent
-            border.width: 0
-            color: "#23252e"
-            Image {
-                id: slide_discover
-                source: "slides/3.png"
-                fillMode: Image.PreserveAspectFit
-                anchors.fill: parent
-            }
-        }
+
+    anchors.fill: parent
+    anchors.verticalCenterOffset: 0
+
+    Image {
+        id: background3
+        source: "slides/3.png"
+        width: parent.width; height: parent.height
+        verticalAlignment: Image.AlignTop
+        fillMode: Image.Stretch
+        anchors.fill: parent
+    	}
     }
+
 
     Slide {
-           anchors.fill: parent
-        Rectangle {
-            anchors.fill: parent
-            border.width: 0
-            color: "#23252e"
-            Image {
-                id: slide_forum
-                source: "slides/4.png"
-                fillMode: Image.PreserveAspectFit
-                anchors.fill: parent
-            }
-        }
+
+    anchors.fill: parent
+    anchors.verticalCenterOffset: 0
+
+    Image {
+        id: background4
+        source: "slides/4.png"
+        width: parent.width; height: parent.height
+        verticalAlignment: Image.AlignTop
+        fillMode: Image.Stretch
+        anchors.fill: parent
+    	}
     }
+
 
     Slide {
-           anchors.fill: parent
-        Rectangle {
-            anchors.fill: parent
-            border.width: 0
-            color: "#23252e"
-            Image {
-                id: slide_forum
-                source: "slides/5.png"
-                fillMode: Image.PreserveAspectFit
-                anchors.fill: parent
-            }
-        }
+
+    anchors.fill: parent
+    anchors.verticalCenterOffset: 0
+
+    Image {
+        id: background5
+        source: "slides/5.png"
+        width: parent.width; height: parent.height
+        verticalAlignment: Image.AlignTop
+        fillMode: Image.Stretch
+        anchors.fill: parent
+    	}
     }
 
+
+    // When this slideshow is loaded as a V1 slideshow, only
+    // activatedInCalamares is set, which starts the timer (see above).
+    //
+    // In V2, also the onActivate() and onLeave() methods are called.
+    // These example functions log a message (and re-start the slides
+    // from the first).
     function onActivate() {
         console.log("QML Component (default slideshow) activated");
         presentation.currentSlide = 0;
@@ -111,4 +139,5 @@ Presentation
     function onLeave() {
         console.log("QML Component (default slideshow) deactivated");
     }
+
 }
