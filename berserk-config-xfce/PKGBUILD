@@ -1,8 +1,8 @@
 # Maintainer: Gaurav Raj (@thehackersbrain) <me@thehackersbrain.xyz>
 
 pkgname=berserk-config-xfce
-pkgver=0.5.7
-pkgrel=9
+pkgver=0.5.8
+pkgrel=1
 pkgdesc="Default XFCE configuration for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/berserk-config-xfce"
