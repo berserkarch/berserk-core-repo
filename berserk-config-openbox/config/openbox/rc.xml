@@ -186,7 +186,7 @@
     <!-- custom keybinds -->
     <keybind key="A-d">
       <action name="Execute">
-        <command>/usr/share/berserk-arch/scripts/rlaunch</command>
+        <command>/usr/share/berserkarch/scripts/rlaunch</command>
       </action>
     </keybind>
     <keybind key="A-Return">
@@ -196,12 +196,12 @@
     </keybind>
     <keybind key="A-p">
       <action name="Execute">
-        <command>/usr/share/berserk-arch/scripts/plaunch</command>
+        <command>/usr/share/berserkarch/scripts/plaunch</command>
       </action>
     </keybind>
     <keybind key="A-s">
       <action name="Execute">
-        <command>/usr/share/berserk-arch/scripts/slaunch</command>
+        <command>/usr/share/berserkarch/scripts/slaunch</command>
       </action>
     </keybind>
     <keybind key="W-f">
