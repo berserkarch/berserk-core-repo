@@ -3,7 +3,7 @@
 
 pkgname=berserk-calamares-next
 _pkgname=calamares
-pkgver=26.01.27.2
+pkgver=26.02.05.1
 pkgrel=1
 release_name="rolling"
 pkgdesc="Calamares installer for Berserk Arch"
@@ -19,7 +19,7 @@ provides=("calamares")
 options=(!strip !emptydirs)
 source=("https://github.com/thehackersbrain/${_pkgname}/archive/refs/tags/${pkgver}.tar.gz")
 
-sha256sums=('958130165367914d20e54552d0eaf079c2b67b58111263129a59a60ea240e7af')
+sha256sums=('6f0d2a498511a57774e81b2b3041957070e81ce0bfa812988c3fae17a87d19d9')
 
 prepare() {
   # Update branding.desc with the proper values
