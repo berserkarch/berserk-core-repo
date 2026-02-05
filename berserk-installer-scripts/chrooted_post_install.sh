@@ -186,6 +186,9 @@ _remove_unwanted_packages() {
     'berserk-welcome'
     'berserk-calamares'
     'berserk-config-calamares'
+    'berserk-config-calamares-next'
+    'berserk-calamares-next'
+    'mkinitcpio'
   )
   local rpkg
 
