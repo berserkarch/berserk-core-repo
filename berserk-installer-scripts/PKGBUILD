@@ -1,15 +1,15 @@
-# Maintainer: Gaurav Raj (@thehackersbrain) <me@thehackersbrain.xyz>
+# Maintainer: Gaurav Raj (@thehackersbrain) <gaurav@thehackersbrain.dev>
 
 pkgname=berserk-install-scripts
-pkgver=0.1.2
-pkgrel=9
+pkgver=0.1.3
+pkgrel=1
 pkgdesc='Berserk Arch Install Scripts'
 arch=('any')
 url="https://github.com/berserkarch/berserk-core-src"
 license=('GPL3')
 source=('chrooted_desktop.sh' 'chrooted_post_install.sh' 'post_install.sh')
 sha512sums=('caab558a9e68b403e7a3d6a828c6d2a0f49babcf0dc7b0c0fd497da4421c84df1632827363c1a2451b752c694de641f4b2903398872e7c4e22d828f9919ae315'
-            '00291fe6388234c2e7ef6d0a17cee03f2066360135f603a50ae96d088b69083873c887b8852c044d8b6f36c02181e3db9a0d17599cb149d311301b85b3d487ba'
+            '07312ae9eccc169a6c6b583e82f83366f86446ffd033f32e92d5adc5e7882d341134172cb9952257b772ea1141949396ab92de8a06be75d136c0425f744f6764'
             'e6fca01bc684b6800040443f9a333173aad4be8064052c68de8d5e4f66ced7bdfb13b47952b91ea91c8e6dab0861b869f042e3fd27ed51ea0b1d34b7d9c7b764')
 
 package() {

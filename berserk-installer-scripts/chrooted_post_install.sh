@@ -168,7 +168,7 @@ _remove_unwanted_ucode() {
 
 # Remove unnecessary packages
 _remove_unwanted_packages() {
-  local _packages_to_remove=('archcraft-install-scripts'
+  local _packages_to_remove=(
     'calamares'
     'archinstall'
     'arch-install-scripts'
@@ -182,7 +182,11 @@ _remove_unwanted_packages() {
     'mc'
     'ddrescue'
     'testdisk'
-    'syslinux')
+    'syslinux'
+    'berserk-welcome'
+    'berserk-calamares'
+    'berserk-config-calamares'
+  )
   local rpkg
 
   echo "+---------------------->>"
