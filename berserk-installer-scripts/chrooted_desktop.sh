@@ -82,6 +82,7 @@ install_xfce() {
 ## Install XFCE ----------
 install_openbox() {
   echo "[*] Installing OpenBox WM..."
+  remove_xfce
 }
 
 ## ---------------------------------------------------------------------------------------
