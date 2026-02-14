@@ -1,7 +1,7 @@
 # Maintainer: Gaurav Raj (@thehackersbrain) <gaurav@thehackersbrain.dev>
 pkgname=berserk-config-calamares-next
 pkgver=0.1.4
-pkgrel=6
+pkgrel=7
 pkgdesc="Calamares configuration files and branding for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/vigarch-core-repo/tree/main/berserk-config-calamares"
