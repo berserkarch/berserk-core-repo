@@ -1,0 +1,22 @@
+# Maintainer: Gaurav Raj (@thehackersbrain) <gaurav@thehackersbrain.dev>
+
+pkgname=berserk-sddm-theme
+pkgver=0.1.0
+pkgrel=2
+pkgdesc='Berserk Arch Theme for SDDM'
+arch=('any')
+url="https://github.com/berserkarch/bersekr-sddm-theme"
+license=('GPL')
+depends=('sddm' 'qt6-svg' 'qt6-virtualkeyboard' 'qt6-multimedia-ffmpeg')
+makedepends=('git')
+install=berserk-sddm-theme.install
+backup=('etc/sddm.conf')
+
+package() {
+  install -dm 755 $pkgdir/usr/share/sddm/themes/
+  install -dm 755 $pkgdir/usr/share/fonts/
+  install -d $pkgdir/etc/sddm.conf.d/
+  cp $startdir/berserk.conf $pkgdir/etc/sddm.conf.d/berserk.conf
+  cp -r --no-preserve=ownership $startdir/theme/berserk-sddm-theme/ $pkgdir/usr/share/sddm/themes/
+  cp -r --no-preserve=ownership $startdir/theme/berserk-sddm-theme/Fonts/ $pkgdir/usr/share/fonts
+}
