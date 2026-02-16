@@ -1,8 +1,8 @@
-# Maintainer: Gaurav Raj (@thehackersbrain) <me@thehackersbrain.xyz>
+# Maintainer: Gaurav Raj (@thehackersbrain) <gaurav@thehackersbrain.xyz>
 
 pkgname=berserk-user-config
 pkgver=0.1.1
-pkgrel=6
+pkgrel=7
 pkgdesc="Default User configuration for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/berserk-config-xfce"
@@ -42,4 +42,5 @@ package() {
   cp -r "${srcdir}/berserk-config-xfce/data/" "${pkgdir}/${berserkconfig}/"
   mkdir -p "${pkgdir}/etc/sudoers.d/"
   cp "${srcdir}/berserk-config-xfce/01_pw_feedback" "${pkgdir}/etc/sudoers.d/01_pw_feedback"
+  install -Dm644 "${srcdir}/berserk-config-xfce/icons/default/index.theme" "${pkgdir}/usr/share/icons/default/index.theme.ba"
 }

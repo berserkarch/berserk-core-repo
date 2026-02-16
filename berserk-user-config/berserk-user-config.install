@@ -5,6 +5,9 @@ Black='\033[0;30m' Red='\033[0;31m' Green='\033[0;32m' Yellow='\033[0;33m'
 Blue='\033[0;34m' Purple='\033[0;35m' Cyan='\033[0;36m' White='\033[0;37m'
 
 ## -----------------------------------
+update_cursor_theme() {
+  mv /usr/share/icons/default/index.theme.ba /usr/share/icons/default/index.theme
+}
 
 update_env() {
   mv /etc/berserk-environment /etc/environment
@@ -12,6 +15,7 @@ update_env() {
 
 post_install() {
   update_env
+  update_cursor_theme
 }
 
 post_upgrade() {
