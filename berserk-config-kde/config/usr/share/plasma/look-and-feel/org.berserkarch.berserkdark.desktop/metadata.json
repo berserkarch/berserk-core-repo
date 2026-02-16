@@ -1,0 +1,17 @@
+{
+    "KPackageStructure": "Plasma/LookAndFeel",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "gaurav@thehackersbrain.dev",
+                "Name": "Gaurav Raj"
+            }
+        ],
+        "Category": "",
+        "Description": "BerserkDark",
+        "Id": "org.berserkarch.berserkdark.desktop",
+        "License": "GPL-3.0+",
+        "Name": "BerserkDark",
+        "Website": "https://berserkarch.org"
+    }
+}

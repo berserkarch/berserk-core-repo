@@ -1,0 +1,19 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "gaurav@thehackersbrain.dev",
+                "Name": "Gaurav Raj"
+            }
+        ],
+        "Category": "",
+        "Description": "Berserk Arch Plasma Theme",
+        "EnabledByDefault": true,
+        "Id": "BerserkDark",
+        "License": "GPL-3.0+",
+        "Name": "BerserkDark",
+        "Version": "1.0.0",
+        "Website": "https://berserkarch.org"
+    },
+    "X-Plasma-API": "5.0"
+}

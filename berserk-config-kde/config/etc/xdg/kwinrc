@@ -1,0 +1,8 @@
+[org.kde.kdecoration2]
+ButtonsOnLeft=M
+ButtonsOnRight=IAX
+library=org.berserkarch.berserk
+theme=BerserkDark
+
+[Desktops]
+Number=2

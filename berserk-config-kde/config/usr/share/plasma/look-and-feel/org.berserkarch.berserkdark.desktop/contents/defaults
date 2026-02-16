@@ -1,0 +1,15 @@
+[kdeglobals][General]
+ColorScheme=BerserkDark
+
+[kwinrc][org.kde.kdecoration2]
+library=org.berserkarch.berserk
+theme=BerserkDark
+
+[kdeglobals][Icons]
+Theme=Flat-Remix-Blue-Dark
+
+[plasmarc][Theme]
+name=BerserkDark
+
+[Wallpaper]
+Image=BerserkArch

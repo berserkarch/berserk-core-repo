@@ -1,0 +1,22 @@
+# Maintainer: Gaurav Raj (@thehackersbrain) <gaurav@thehackersbrain.dev>
+
+pkgname=berserk-config-kde
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Default KDE configuration for Berserk Arch"
+arch=('any')
+url="https://github.com/berserkarch/berserkarch"
+license=('GPL3')
+
+source=()
+sha256sums=()
+
+package() {
+  install -d "${pkgdir}/etc/xdg/"
+  install -d "${pkgdir}/etc/skel/.config/"
+  install -d "${pkgdir}/usr/share/"
+
+  cp -r "${startdir}/config/etc/xdg/" "${pkgdir}/etc/"
+  cp -rT "${startdir}/config/etc/xdg/" "${pkgdir}/etc/skel/.config/"
+  cp -r "${startdir}/config/usr/share" "${pkgdir}/usr/"
+}

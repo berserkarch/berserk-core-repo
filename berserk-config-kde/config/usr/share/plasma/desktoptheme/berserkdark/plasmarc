@@ -1,0 +1,15 @@
+[Settings]
+FallbackTheme=default
+
+[Wallpaper]
+defaultWallpaperTheme=berserkarch
+defaultFileSuffix=.png
+
+[ContrastEffect]
+enabled=true
+contrast=0.2
+intensity=0.6
+saturation=10
+
+[AdaptativeTransparency]
+enabled=true
