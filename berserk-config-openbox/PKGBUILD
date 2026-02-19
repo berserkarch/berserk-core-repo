@@ -1,8 +1,8 @@
 # Maintainer: Gaurav Raj (@thehackersbrain) <me@thehackersbrain.xyz>
 
 pkgname=berserk-config-openbox
-pkgver=2.0.1
-pkgrel=9
+pkgver=2.0.2
+pkgrel=1
 pkgdesc="Default Openbox configuration for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/berserk-config-openbox"
@@ -27,9 +27,7 @@ package() {
   cp -r "${startdir}/config/xsettingsd" "${pkgdir}/etc/skel/.config/"
   cp -r "${startdir}/config/dunst" "${pkgdir}/etc/skel/.config/"
   cp -r "${startdir}/config/berserk" "${pkgdir}/usr/share/themes/"
-  cp -r "${startdir}/config/icons/default" "${pkgdir}/etc/skel/.icons"
 
-  install -Dm644 "${startdir}/config/icons/default/index.theme" "${pkgdir}/usr/share/icons/default/index.theme.ba"
   chmod 755 "${pkgdir}/etc/skel/.config/openbox/autostart"
   chmod 644 "${pkgdir}/etc/skel/.config/openbox/environment"
 
