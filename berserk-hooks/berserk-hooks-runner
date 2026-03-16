@@ -1,88 +1,165 @@
 #!/bin/bash
 
-Lsb_release() {
-  local file=/etc/lsb-release
+# Constants
+readonly QUOTE='"'
+readonly DISTRO_NAME="Berserk Arch"
+readonly DISTRO_ID="berserkarch"
+readonly BASE_URL="https://berserkarch.xyz"
 
-  if [ -z "$(grep "^DISTRIB_CODENAME=" $file)" ]; then
-    echo "DISTRIB_CODENAME=${quote}rolling${quote}" >>$file
+# File paths
+readonly LSB_FILE="/etc/lsb-release"
+readonly OS_RELEASE_FILES=("/etc/os-release" "/usr/lib/os-release")
+readonly BERSERK_RELEASE="/usr/lib/berserkarch-release"
+readonly GRUB_CONFIG="/etc/default/grub"
+readonly ISSUE_FILES=("/etc/issue" "/usr/share/factory/etc/issue")
+
+# URL endpoints
+readonly URL_HOME="${BASE_URL}/"
+readonly URL_DOCS="https://wiki.${BASE_URL#https://}/"
+readonly URL_SUPPORT="${BASE_URL}/support/"
+readonly URL_BUGS="${BASE_URL}/issues/"
+readonly URL_PRIVACY="${BASE_URL}/privacy-policy"
+
+# Logging
+log_info() { echo "[INFO] $*" >&2; }
+log_error() { echo "[ERROR] $*" >&2; }
+
+# LSB Release configuration
+configure_lsb_release() {
+  [[ ! -f "$LSB_FILE" ]] && {
+    log_error "LSB file not found"
+    return 1
+  }
+
+  # Ensure DISTRIB_CODENAME exists
+  grep -q "^DISTRIB_CODENAME=" "$LSB_FILE" ||
+    echo "DISTRIB_CODENAME=${QUOTE}rolling${QUOTE}" >>"$LSB_FILE"
+
+  sed -i "$LSB_FILE" \
+    -e "s|^DISTRIB_ID=.*|DISTRIB_ID=${QUOTE}${DISTRO_NAME}${QUOTE}|" \
+    -e "s|^DISTRIB_CODENAME=.*|DISTRIB_CODENAME=${QUOTE}rolling${QUOTE}|" \
+    -e "s|^DISTRIB_DESCRIPTION=.*|DISTRIB_DESCRIPTION=${QUOTE}${DISTRO_NAME}${QUOTE}|" \
+    -e "s|^DISTRIB_RELEASE=\"\(.*\)\"|DISTRIB_RELEASE=${QUOTE}\1${QUOTE}|"
+
+  log_info "LSB release configured"
+}
+
+# OS Release configuration
+configure_os_release() {
+  local sed_patterns=(
+    -e "s|^NAME=.*|NAME=${QUOTE}${DISTRO_NAME}${QUOTE}|"
+    -e "s|^PRETTY_NAME=.*|PRETTY_NAME=${QUOTE}${DISTRO_NAME}${QUOTE}|"
+    -e "s|^HOME_URL=.*|HOME_URL=${QUOTE}${URL_HOME}${QUOTE}|"
+    -e "s|^DOCUMENTATION_URL=.*|DOCUMENTATION_URL=${QUOTE}${URL_DOCS}${QUOTE}|"
+    -e "s|^SUPPORT_URL=.*|SUPPORT_URL=${QUOTE}${URL_SUPPORT}${QUOTE}|"
+    -e "s|^BUG_REPORT_URL=.*|BUG_REPORT_URL=${QUOTE}${URL_BUGS}${QUOTE}|"
+    -e "s|^ID=.*|ID=${QUOTE}${DISTRO_ID}${QUOTE}|"
+    -e "s|^ID_LIKE=.*|ID_LIKE=${QUOTE}arch${QUOTE}|"
+    -e "s|^PRIVACY_POLICY_URL=.*|PRIVACY_POLICY_URL=${QUOTE}${URL_PRIVACY}${QUOTE}|"
+    -e "s|^ANSI_COLOR=\"\(.*\)\"|ANSI_COLOR=${QUOTE}\1${QUOTE}|"
+    -e "s|^LOGO=.*|LOGO=${QUOTE}${DISTRO_ID}-logo${QUOTE}|"
+  )
+
+  # Apply to all os-release files
+  for file in "${OS_RELEASE_FILES[@]}"; do
+    [[ -f "$file" ]] || continue
+    sed -i "${sed_patterns[@]}" "$file"
+
+    # Ensure ID_LIKE exists
+    if ! grep -q "^ID_LIKE=" "$file" && grep -q "^ID=" "$file"; then
+      sed -i "$file" -e "/^ID=/a ID_LIKE=${QUOTE}arch${QUOTE}"
+    fi
+
+    # Update BUILD_ID from berserkarch-release if available
+    if [[ -r "$BERSERK_RELEASE" ]]; then
+      local build_id
+      build_id=$(grep "^VERSION=" "$BERSERK_RELEASE" 2>/dev/null | cut -d'=' -f2 | tr -d ' "' | head -n1)
+      sed -i "$file" -e "s|^BUILD_ID=.*|BUILD_ID=${QUOTE}${build_id}${QUOTE}|"
+    fi
+
+    log_info "Configured: $file"
+  done
+}
+
+# GRUB theme configuration
+configure_grub_theme() {
+  local theme_path="/usr/share/grub/themes/berserk/theme.txt"
+
+  [[ ! -f "$GRUB_CONFIG" ]] && {
+    log_error "GRUB config not found"
+    return 1
+  }
+  [[ ! -f "$theme_path" ]] && {
+    log_error "GRUB theme not found: $theme_path"
+    return 1
+  }
+
+  sed -i "s|^#\?GRUB_THEME=.*|GRUB_THEME=\"${theme_path}\"|" "$GRUB_CONFIG"
+
+  if command -v update-grub &>/dev/null; then
+    update-grub
+  elif command -v grub-mkconfig &>/dev/null; then
+    grub-mkconfig -o /boot/grub/grub.cfg
+  else
+    log_error "No GRUB update command found"
+    return 1
   fi
-  sed -i $file \
-    -e "s|^DISTRIB_ID=.*|DISTRIB_ID=${quote}Berserk Arch${quote}|" \
-    -e "s|^DISTRIB_CODENAME=.*|DISTRIB_CODENAME=${quote}rolling${quote}|" \
-    -e "s|^DISTRIB_DESCRIPTION=.*|DISTRIB_DESCRIPTION=${quote}Berserk Arch${quote}|" \
-    -e "s|^DISTRIB_RELEASE=\"\(.*\)\"|DISTRIB_RELEASE=${quote}\1${quote}|"
+
+  log_info "GRUB theme configured"
 }
 
-Os_release() {
-  local file="/etc/os-release"
-  [ -e "/usr/bin/os-release" ] && file="/usr/lib/os-release"
+# Plymouth theme configuration
+configure_plymouth_theme() {
+  command -v plymouth-set-default-theme &>/dev/null ||
+    {
+      log_error "Plymouth not installed"
+      return 1
+    }
 
-  # if [ -e "/usr/lib/os-release"]; then
-  #   local file="/usr/lib/os-release"
-  # else
-  #   local file="/etc/os-release"
-
-  # local file=/usr/lib/os-release
-
-  local bosfile=/usr/lib/berserkarch-release
-
-  local home=https://berserkarch.xyz/
-  local doc=https://wiki.berserkarch.xyz/
-  local support=https://berserkarch.xyz/support/
-  local bugs=https://berserkarch.xyz/issues/
-  local privacy=https://berserkarch.xyz/privacy-policy
-
-  sed -i $file \
-    -e "s|^NAME=.*|NAME=${quote}Berserk Arch${quote}|" \
-    -e "s|^PRETTY_NAME=.*|PRETTY_NAME=${quote}Berserk Arch${quote}|" \
-    -e "s|^HOME_URL=.*|HOME_URL=${quote}$home${quote}|" \
-    -e "s|^DOCUMENTATION_URL=.*|DOCUMENTATION_URL=${quote}$doc${quote}|" \
-    -e "s|^SUPPORT_URL=.*|SUPPORT_URL=${quote}$support${quote}|" \
-    -e "s|^BUG_REPORT_URL=.*|BUG_REPORT_URL=${quote}$bugs${quote}|" \
-    -e "s|^ID=.*|ID=${quote}berserkarch${quote}|" \
-    -e "s|^ID_LIKE=.*|ID_LIKE=${quote}arch${quote}|" \
-    -e "s|^PRIVACY_POLICY_URL=.*|PRIVACY_POLICY_URL=${quote}$privacy${quote}|" \
-    -e "s|^ANSI_COLOR=\"\(.*\)\"|ANSI_COLOR=${quote}\1${quote}|"
-
-  if [ -z "$(grep "^ID_LIKE=" $file)" ] && [ -n "$(grep "^ID=" $file)" ]; then
-    # add missing ID_LIKE=
-    sed -i $file -e "/^ID=/a \ID_LIKE=${quote}arch${quote}"
-  fi
-  if [ -r $bosfile ]; then
-    local buildid="$(grep "^VERSION=" $eosfile | awk '{print $1}' | cut -d '=' -f 2)"
-    sed -i $file -e "s|^BUILD_ID=.*|BUILD_ID=${quote}$buildid${quote}|"
-  fi
+  plymouth-set-default-theme berserk
+  log_info "Plymouth theme configured"
 }
 
-Grub_theme() {
-  sed -i -e "s|#GRUB_THEME=.*|GRUB_THEME=\"/usr/share/grub/themes/berserk/theme.txt\"|g" /etc/default/grub
-  update-grub
+# Issue file branding
+configure_issue_files() {
+  for file in "${ISSUE_FILES[@]}"; do
+    [[ -f "$file" ]] || continue
+    sed -i "s|Arch Linux|${DISTRO_NAME}|g; s|Arch|${DISTRO_NAME}|g" "$file"
+    log_info "Configured: $file"
+  done
 }
 
-Plymouth_theme() {
-  plymouth-set-default-theme -R berserk
-}
+# Main dispatcher
+main() {
+  local target="${1:-all}"
 
-Issues() {
-  sed -i 's|Arch|Berserk Arch|g' /etc/issue /usr/share/factory/etc/issue
-}
-
-Main() {
-  local hookname="$1"
-  local quote="'"
-  quote='\"'
-
-  case "$hookname" in
-  os-release) Os_release ;;
-  lsb-release) Lsb_release ;;
-  grub-theme) Grub_theme ;;
-  plymouth-theme) Plymouth_theme ;;
-  "")
-    Os_release
-    Lsb_release
-    Issues
+  case "$target" in
+  os-release)
+    configure_os_release
+    ;;
+  lsb-release)
+    configure_lsb_release
+    ;;
+  grub-theme)
+    configure_grub_theme
+    ;;
+  plymouth-theme)
+    configure_plymouth_theme
+    ;;
+  issues)
+    configure_issue_files
+    ;;
+  all)
+    configure_os_release
+    configure_lsb_release
+    configure_issue_files
+    ;;
+  *)
+    log_error "Unknown target: $target"
+    echo "Usage: $0 [os-release|lsb-release|issues|all]"
+    exit 1
     ;;
   esac
 }
 
-Main "$@"
+main "$@"
