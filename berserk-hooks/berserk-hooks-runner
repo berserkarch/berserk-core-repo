@@ -81,45 +81,6 @@ configure_os_release() {
   done
 }
 
-# GRUB theme configuration
-configure_grub_theme() {
-  local theme_path="/usr/share/grub/themes/berserk/theme.txt"
-
-  [[ ! -f "$GRUB_CONFIG" ]] && {
-    log_error "GRUB config not found"
-    return 1
-  }
-  [[ ! -f "$theme_path" ]] && {
-    log_error "GRUB theme not found: $theme_path"
-    return 1
-  }
-
-  sed -i "s|^#\?GRUB_THEME=.*|GRUB_THEME=\"${theme_path}\"|" "$GRUB_CONFIG"
-
-  if command -v update-grub &>/dev/null; then
-    update-grub
-  elif command -v grub-mkconfig &>/dev/null; then
-    grub-mkconfig -o /boot/grub/grub.cfg
-  else
-    log_error "No GRUB update command found"
-    return 1
-  fi
-
-  log_info "GRUB theme configured"
-}
-
-# Plymouth theme configuration
-configure_plymouth_theme() {
-  command -v plymouth-set-default-theme &>/dev/null ||
-    {
-      log_error "Plymouth not installed"
-      return 1
-    }
-
-  plymouth-set-default-theme berserk
-  log_info "Plymouth theme configured"
-}
-
 # Issue file branding
 configure_issue_files() {
   for file in "${ISSUE_FILES[@]}"; do
@@ -139,12 +100,6 @@ main() {
     ;;
   lsb-release)
     configure_lsb_release
-    ;;
-  grub-theme)
-    configure_grub_theme
-    ;;
-  plymouth-theme)
-    configure_plymouth_theme
     ;;
   issues)
     configure_issue_files

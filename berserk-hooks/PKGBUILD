@@ -2,30 +2,26 @@
 
 pkgname=berserk-hooks
 pkgver=0.1.4
-pkgrel=7
+pkgrel=8
 pkgdesc='Berserk Arch pacman hooks'
 arch=('any')
 license=('GPL3')
 url=https://gitlab.com/berserkarch/berserk-packages/berserk-core/-/tree/main/$pkgname
 _url=https://gitlab.com/berserkarch/berserk-packages/berserk-core/-/raw/main/$pkgname
 
-depends=()
+depends=('berserk-dracut')
 
 source=(
   $_url/berserk-os-release.hook
   $_url/berserk-lsb-release.hook
-  $_url/berserk-grub-theme.hook
-  $_url/berserk-plymouth-theme.hook
   $_url/${pkgname}.hook
   $_url/${pkgname}-runner
 )
 
 sha512sums=('508eb24db4734b93768b3c8db2477a8282f799bed925ae8b55f89c1ac9c3ece86f69c2adbbdf6ee2abe241a09d9531bf69925c36507f249551e7a90817da0f27'
-            '5c483507685410e0432e18877d37d7a31df6256cfcf328aea05ba7500a97a3cf75db90c7c41b5049a2d354677bbe59be57999ea66381783ad38426a4056ec586'
-            'f47df86a5a5a38e54d329a141479fed439f110256497957ec7a15f11aa474e394df28a4684755070808434302f0c133456de7170c741ddac3d75c3d0b4027568'
-            'b0cef8624c531792dbd57ccc406f846550645f62e6070ee226d1251c7fb5cdb6f8631a3dd21fa7c27bcc2f74504bebbe84c398dd6bbbe64da6be35e74983a838'
-            '563935c34d416a9918479169a0b04ba4631b513e420e41738c4f5a58b4098b981e28d32477b8c7697e20b3651533b0e8b129ba95e058f293ffb0906521aafdac'
-            '0045fc132d615a5e5a140cb6a464a95c898750babdae5316e27259349d77694abae5459df5ce3efccbc5b1b15c2fcfc376c45dd5754cba73d56e75b71fef4e1a')
+  '5c483507685410e0432e18877d37d7a31df6256cfcf328aea05ba7500a97a3cf75db90c7c41b5049a2d354677bbe59be57999ea66381783ad38426a4056ec586'
+  'f47df86a5a5a38e54d329a141479fed439f110256497957ec7a15f11aa474e394df28a4684755070808434302f0c133456de7170c741ddac3d75c3d0b4027568'
+  'e57d9e14da2538bafb7085c27c691a8eb6037a6d52d3b9b2ee251ed4242bdf220299422ece40a77dcebd9bef67983ac5fe74734920bb736b7802c285b170dd47')
 
 package() {
   local hooks=$pkgdir/usr/share/libalpm/hooks
@@ -33,8 +29,6 @@ package() {
 
   install -Dm644 berserk-lsb-release.hook $hooks/berserk-lsb-release.hook
   install -Dm644 berserk-os-release.hook $hooks/berserk-os-release.hook
-  install -Dm644 berserk-grub-theme.hook $hooks/berserk-grub-theme.hook
-  install -Dm644 berserk-plymouth-theme.hook $hooks/berserk-plymouth-theme.hook
   install -Dm644 ${pkgname}.hook $hooks/${pkgname}.hook
 
   install -Dm755 ${pkgname}-runner $bin/${pkgname}-runner
