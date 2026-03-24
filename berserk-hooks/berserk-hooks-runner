@@ -4,7 +4,7 @@
 readonly QUOTE='"'
 readonly DISTRO_NAME="Berserk Arch"
 readonly DISTRO_ID="berserkarch"
-readonly BASE_URL="https://berserkarch.xyz"
+readonly BASE_URL="https://berserkarch.org"
 
 # File paths
 readonly LSB_FILE="/etc/lsb-release"
