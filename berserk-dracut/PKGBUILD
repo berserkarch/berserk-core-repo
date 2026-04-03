@@ -2,16 +2,16 @@
 
 pkgname=berserk-dracut
 pkgver=0.1.0
-pkgrel=2
+pkgrel=3
 pkgdesc="Dracut scripts and hooks for Berserk Arch"
 url=https://berserkarch.xyz
 arch=('any')
 license=('BSD')
 backup=('etc/ba-dracut.conf')
 depends=('dracut')
-conflicts=('kernel-install-for-dracut')
+
 replaces=('dracut')
-provides=('dracut')
+
 source=("dracut-rebuild"
   "dracut-install"
   "dracut-remove"
@@ -40,3 +40,5 @@ package() {
   install -Dm755 "${srcdir}/snapshot-overlay.sh" "${pkgdir}/usr/lib/dracut/modules.d/91btrfs-snapshot-overlay/snapshot-overlay.sh"
   install -Dm755 "${srcdir}/module-setup.sh" "${pkgdir}/usr/lib/dracut/modules.d/91btrfs-snapshot-overlay/module-setup.sh"
 }
+depends=('dracut')
+depends=('dracut')
