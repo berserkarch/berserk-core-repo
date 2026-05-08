@@ -2,12 +2,12 @@
 
 pkgname=berserk-config-hyprland
 pkgver=0.1.0
-pkgrel=2
+pkgrel=3
 pkgdesc="Default Hyprlandconfiguration for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/berserk-config-hyprland"
 license=('GPL3')
-depends=('hyprland' 'sddm' 'waybar' 'rofi-wayland' 'swww' 'xclip' 'wl-clipboard' 'xdotool' 'qt5ct-wayland' 'qt6ct-wayland' 'kvantum' 'xdg-desktop-portal-gtk' 'xdg-desktop-portal-hyprland' 'plasma-integration' 'hyprland-qt-support' 'hyprqt6engine' 'hyprpolkitagent' 'cliphist' 'dunst')
+depends=('hyprland' 'sddm' 'waybar' 'rofi-wayland' 'swww' 'xclip' 'wl-clipboard' 'xdotool' 'qt5ct' 'qt6ct' 'kvantum' 'xdg-desktop-portal-gtk' 'xdg-desktop-portal-hyprland' 'plasma-integration' 'hyprland-qt-support' 'hyprqt6engine' 'hyprpolkitagent' 'cliphist' 'dunst')
 
 source=()
 sha256sums=()
