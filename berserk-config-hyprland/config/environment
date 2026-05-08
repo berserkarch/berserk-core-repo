@@ -1,7 +1,7 @@
 EDITOR=vim
 BROWSER=firefox
-PATH="$PATH:/usr/share/berserk-arch/scripts:/usr/share/berserkarch/scripts"
-GTK_THEME=BerserkDark-blue
+PATH="$PATH:/usr/share/berserkarch/scripts"
+GTK_THEME=BerserkDark-blue:dark
 XCURSOR_THEME="Sunity-Cursors"
 GTK_ICON_THEME=Flat-Remix-Blue-Dark
 QT_QPA_PLATFORMTHEME=hyprqt6engine

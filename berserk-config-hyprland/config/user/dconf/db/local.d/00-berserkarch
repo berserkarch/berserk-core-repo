@@ -5,4 +5,5 @@ cursor-theme='Sunity-Cursors'
 cursor-size=20
 font-name='Cantarell 10'
 document-font-name='Cantarell 10'
-monospace-font-name='JetBrains Mono 10'
+monospace-font-name='JetBrainsMono Nerd Font 10'
+color-scheme='prefer-dark'
