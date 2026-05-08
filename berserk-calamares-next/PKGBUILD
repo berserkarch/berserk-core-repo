@@ -4,7 +4,7 @@
 pkgname=berserk-calamares-next
 _pkgname=calamares
 pkgver=26.02.05.1
-pkgrel=1
+pkgrel=2
 release_name="rolling"
 pkgdesc="Calamares installer for Berserk Arch"
 arch=('any')
