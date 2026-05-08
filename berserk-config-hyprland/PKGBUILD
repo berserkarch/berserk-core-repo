@@ -2,7 +2,7 @@
 
 pkgname=berserk-config-hyprland
 pkgver=0.1.0
-pkgrel=5
+pkgrel=6
 pkgdesc="Default Hyprlandconfiguration for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/berserk-config-hyprland"
@@ -27,7 +27,9 @@ package() {
   cp -r "${startdir}/config/user/gtk-3.0" "${pkgdir}/etc/skel/.config/"
   cp -r "${startdir}/config/user/gtk-4.0" "${pkgdir}/etc/skel/.config/"
   cp -r "${startdir}/config/user/xsettingsd" "${pkgdir}/etc/skel/.config/"
+  cp -r "${startdir}/config/user/nwg-look" "${pkgdir}/etc/skel/.config/"
   cp "${startdir}/config/user/gtkrc-2.0" "${pkgdir}/etc/skel/"
   cp -r "${startdir}/config/scripts" "${pkgdir}/${berserkconfig}/"
+  cp -r "${startdir}/config/user/dconf" "${pkgdir}/etc/"
   install -Dm644 ${startdir}/config/environment "${pkgdir}/etc/environment.new"
 }

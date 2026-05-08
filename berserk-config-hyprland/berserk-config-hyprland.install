@@ -1,5 +1,6 @@
 post_install() {
   mv /etc/environment.new /etc/environment
+  dconf update
 }
 
 post_upgrade() {
