@@ -24,7 +24,7 @@ output="$(
 )"
 wait
 if [ -z "$output" ]; then
-notify-send "Keybind Hint" "Initialization failed."
+  notify-send "Keybind Hint" "Initialization failed."
   exit 0
 fi
 
@@ -61,11 +61,6 @@ selected=$(echo -e "$output" | rofi -dmenu -p \
   -theme Arc-Dark \
   " Keybinds \t\tﴕ Description" \
   -p -i \
-  -display-columns 1 \
-  -display-column-separator ":::" \
-  -theme-str "${fnt_override}" \
-  -theme-str "${r_override}" \
-  -theme-str "${icon_override}" \
   -config "${rofi_config}" | sed 's/.*\s*//')
 if [ -z "$selected" ]; then exit 0; fi
 dispatch=$(awk -F ':::' '{print $2}' <<<"$selected" | xargs)
