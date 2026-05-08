@@ -1,0 +1,10 @@
+EDITOR=vim
+BROWSER=firefox
+PATH="$PATH:/usr/share/berserk-arch/scripts:/usr/share/berserkarch/scripts"
+GTK_THEME=BerserkDark-blue
+XCURSOR_THEME="Sunity-Cursors"
+GTK_ICON_THEME=Flat-Remix-Blue-Dark
+QT_QPA_PLATFORMTHEME=hyprqt6engine
+QT_QPA_PLATFORM=wayland;xcb
+XDG_SESSION_TYPE=wayland
+XDG_CURRENT_DESKTOP=Hyprland
