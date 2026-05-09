@@ -103,7 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls=exa
-export PATH="$HOME/.local/bin:$PATH:$GEM_HOME/bin:$HOME/.config/emacs/bin:$ANDROID_HOME/emulator:$ANDROID_HOME/cmdline-tools/latest/bin"
+export PATH="$PATH:$HOME/go/bin:/$HOME/.local/bin:$HOME/.cargo/bin:$GEM_HOME/bin"
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

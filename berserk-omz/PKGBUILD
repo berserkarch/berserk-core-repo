@@ -2,14 +2,14 @@
 
 pkgname=berserk-omz
 pkgver=0.1.1
-pkgrel=1
+pkgrel=2
 pkgdesc="Custom berserkarch zsh config based on oh-my-zsh"
 arch=('any')
 url='https://github.com/ohmyzsh/ohmyzsh'
 license=('GPL')
 depends=('oh-my-zsh-git' 'zsh-syntax-highlighting' 'zsh-autosuggestions')
 source=('zshrc' 'berserkarch.zsh-theme')
-sha256sums=('3b609ffb78ca66160c760ca9f2a75a19229cb8a3878f75dd38a5a93b92bdda98'
+sha256sums=('a27dd8ad5450c59ebc75234b03923b563c508c12c312ca4cf59137b631f54871'
             '3dacdf7ac86c2d297ad360ab7cc6b39312c12bee40d9dd8302dbcf4f8be527f0')
 install="$pkgname.install"
 
