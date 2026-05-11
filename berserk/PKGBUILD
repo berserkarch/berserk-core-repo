@@ -1,0 +1,13 @@
+# Maintainer: Gaurav Raj (@thehackersbrain) <gaurav@thehackersbrain.dev>
+
+pkgname=berserk
+pkgver=0.1.0
+pkgrel=1
+pkgdesc='Offensive security tools and container manager for BerserkArch'
+arch=(any)
+url='https://github.com/thehackersbrain/berserk'
+license=(GPLv3)
+depends=(rust cargo nodejs npm ruby git python-pipx go pkgconf openssl base-devel cmake make curl wget jq)
+install="$pkgname.install"
+
+:
