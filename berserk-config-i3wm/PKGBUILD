@@ -1,0 +1,33 @@
+# Maintainer: Gaurav Raj (@thehackersbrain) <gaurav@thehackersbrain.dev>
+
+pkgname=berserk-config-i3wm
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Default Hyprlandconfiguration for Berserk Arch"
+arch=('any')
+url="https://github.com/thehackersbrain/berserk-config-hyprland"
+license=('GPL3')
+depends=('i3-wm' 'sddm' 'xclip' 'xdotool' 'qt5ct' 'qt6ct' 'xdg-desktop-portal-gtk' 'dunst' 'xsettingsd' 'xcompmgr' 'polkit-kde-agent')
+
+source=()
+sha256sums=()
+
+install="$pkgname.install"
+berserkconfig="usr/share/berserkarch"
+
+package() {
+  install -d "${pkgdir}/etc/skel/.config"
+  install -d "${pkgdir}/${berserkconfig}/scripts"
+
+  cp -r "${startdir}/user/dunst" "${pkgdir}/etc/skel/.config/"
+  cp -r "${startdir}/user/i3" "${pkgdir}/etc/skel/.config/"
+  cp -r "${startdir}/user/qt5ct" "${pkgdir}/etc/skel/.config/"
+  cp -r "${startdir}/user/qt6ct" "${pkgdir}/etc/skel/.config/"
+  cp -r "${startdir}/user/polybar" "${pkgdir}/etc/skel/.config/"
+  cp -r "${startdir}/user/gtk-3.0" "${pkgdir}/etc/skel/.config/"
+  cp -r "${startdir}/user/gtk-4.0" "${pkgdir}/etc/skel/.config/"
+  cp -r "${startdir}/user/xsettingsd" "${pkgdir}/etc/skel/.config/"
+  cp -r "${startdir}/user/nwg-look" "${pkgdir}/etc/skel/.config/"
+  cp -r "${startdir}/user/dconf" "${pkgdir}/etc/"
+  install -Dm644 "${startdir}/user/gtkrc-2.0" "${pkgdir}/etc/skel/.gtkrc-2.0"
+}
