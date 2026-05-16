@@ -14,9 +14,7 @@ source=(
   "${pkgname}-linux-amd64::https://github.com/thehackersbrain/berserk/releases/download/v${_pkgver}/${pkgname}-linux-amd64"
 )
 
-sha256sums=(
-  'SKIP'
-)
+sha256sums=('4badd1dc4a4a30b3556147c4939babed90badb5f92fce4bc1ba7c1bf50d3eac8')
 
 package() {
   cd "$srcdir"
