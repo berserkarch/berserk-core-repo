@@ -2,6 +2,13 @@
 
 theme="$HOME/.config/rofi/sshots/style.rasi"
 
+# Transparency detection
+if [[ "$DESKTOP_SESSION" == i3* ]] || [ -n "$I3SOCK" ]; then
+  TRANSPARENCY="screenshot"
+else
+  TRANSPARENCY="real"
+fi
+
 # Theme Elements
 prompt='Screenshot'
 mesg="DIR: $(xdg-user-dir PICTURES)/Screenshots"
@@ -29,24 +36,24 @@ fi
 # Options
 layout=$(cat ${theme} | grep 'USE_ICON' | cut -d'=' -f2)
 if [[ "$layout" == 'NO' ]]; then
-  option_1=" Capture Desktop"
-  option_2=" Capture Area"
-  option_3=" Capture Window"
-  option_4=" Capture in 5s"
-  option_5=" Capture in 10s"
+  option_1=" Capture Desktop"
+  option_2=" Capture Area"
+  option_3=" Capture Window"
+  option_4=" Capture in 5s"
+  option_5=" Capture in 10s"
 else
-  option_1=""
-  option_2=""
-  option_3=""
-  option_4=""
-  option_5=""
+  option_1=""
+  option_2=""
+  option_3=""
+  option_4=""
+  option_5=""
 fi
 
 # Rofi CMD
 rofi_cmd() {
-  rofi -theme-str "window {width: $win_width;}" \
+  rofi -theme-str "window {width: $win_width; transparency: \"$TRANSPARENCY\";}" \
     -theme-str "listview {columns: $list_col; lines: $list_row;}" \
-    -theme-str 'textbox-prompt-colon {str: "";}' \
+    -theme-str 'textbox-prompt-colon {str: "";}' \
     -dmenu \
     -p "$prompt" \
     -mesg "$mesg" \

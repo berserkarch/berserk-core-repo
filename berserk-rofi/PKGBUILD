@@ -3,12 +3,12 @@
 
 pkgname=berserk-rofi
 pkgver=0.1.0
-pkgrel=3
+pkgrel=4
 pkgdesc="Calamares configuration files and branding for Berserk Arch"
 arch=('any')
 url="https://gitlab.com/berserkarch/berserk-packages/berserk-core-src/-/tree/main/berserk-rofi"
 license=('GPL3')
-depends=('rofi')
+depends=('rofi' 'maim' 'xclip' 'xdotool' 'viewnior' 'xdotool' 'dunst')
 source=()
 sha256sums=()
 
