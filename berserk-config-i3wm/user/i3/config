@@ -27,7 +27,7 @@ exec --no-startup-id feh --bg-fill "/usr/share/backgrounds/berserkarch/berserkar
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id "/home/$USER/.config/polybar/launch.sh"
 exec --no-startup-id xsettingsd
-exec --no-startup-id xcompmgr -c -r7 -o.75 -l-7 -t-7 -f -F -I 0.2 -O 0.2 -e 0.7
+exec --no-startup-id xcompmgr -c -r7 -o.75 -l-7 -t-7 -f -F -I 0.2 -O 0.2
 exec --no-startup-id dunst -config "/home/$USER/.config/dunst/dunstrc"
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 
