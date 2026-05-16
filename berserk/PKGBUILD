@@ -2,12 +2,24 @@
 
 pkgname=berserk
 pkgver=0.1.0
-pkgrel=1
+_pkgver=0.2.0
+pkgrel=2
 pkgdesc='Offensive security tools and container manager for BerserkArch'
-arch=(any)
+arch=('any')
 url='https://github.com/thehackersbrain/berserk'
 license=(GPLv3)
 depends=(rust cargo nodejs npm ruby git python-pipx go pkgconf openssl base-devel cmake make curl wget jq)
-install="$pkgname.install"
 
-:
+source=(
+  "${pkgname}-linux-amd64::https://github.com/thehackersbrain/berserk/releases/download/v${_pkgver}/${pkgname}-linux-amd64"
+)
+
+sha256sums=(
+  'SKIP'
+)
+
+package() {
+  cd "$srcdir"
+
+  install -Dm755 ${pkgname}-linux-amd64 "$pkgdir/usr/local/bin/berserk"
+}
