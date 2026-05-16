@@ -1,20 +1,23 @@
-# Maintainer: Gaurav Raj (@thehackersbrain) <me@thehackersbrain.xyz>
+# Maintainer: Gaurav Raj (@thehackersbrain) <gaurav@thehackersbrain.dev>
 
 pkgname=berserk-keyring
 pkgver=0.1.0
-pkgrel=8
+pkgrel=9
 pkgdesc="The GPG keyring for the berserkarch-core repository"
 arch=('any')
 url="https://github.com/berserkarch/berserk-core/tree/main/berserk-keyring"
 license=('GPL3')
-depends=()
-
-source=('berserk-keyring.install' 'berserk-keyring.gpg')
-sha256sums=('f7371648d2e1dd3070c8eb88dab61fae059145b5415157606c1e6c5d658ee54e'
-            'ba58c2ed9274e750f54e801cfeab64adbe97b32eaafc49dd74ffac384529f4ac')
-
-install=$pkgname.install
+depends=('archlinux-keyring')
+makedepends=('gnupg')
+install=berserk-keyring.install
 
 package() {
-  install -Dm755 "${srcdir}/${pkgname}.gpg" "${pkgdir}/usr/share/pacman/keyrings/${pkgname}.gpg"
+  install -Dm0644 "${srcdir}/../berserkarch.gpg" \
+    "${pkgdir}/usr/share/pacman/keyrings/berserkarch.gpg"
+
+  install -Dm0644 "${srcdir}/../berserkarch-trusted" \
+    "${pkgdir}/usr/share/pacman/keyrings/berserkarch-trusted"
+
+  install -Dm0644 "${srcdir}/../berserkarch-revoked" \
+    "${pkgdir}/usr/share/pacman/keyrings/berserkarch-revoked"
 }
