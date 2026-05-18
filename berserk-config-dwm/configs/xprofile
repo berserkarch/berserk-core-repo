@@ -2,4 +2,6 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 wmname LG3D
 feh --bg-fill /usr/share/backgrounds/berserkarch/berserkarch.png &
 spice-vdagent
+xsettingsd &
+/usr/lib/polkit-kde-authentication-agent-1&
 dash $HOME/.config/dwmbar/bar.sh &
