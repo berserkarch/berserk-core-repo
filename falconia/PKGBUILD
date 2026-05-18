@@ -2,8 +2,8 @@
 
 pkgname=falconia
 pkgver=0.1.0
-_pkgver=0.1.0
-pkgrel=1
+_pkgver=0.1.1
+pkgrel=2
 pkgdesc='Terminal based installer for BerserkArch'
 arch=('any')
 url='https://github.com/berserkarch/falconia'
@@ -14,7 +14,7 @@ source=(
   "${pkgname}-linux-amd64::https://github.com/berserkarch/falconia/releases/download/v${_pkgver}/${pkgname}-linux-amd64"
 )
 
-sha256sums=('36e1785f1d43fec612550b65f10f7dbbef7ee95e81f3f6d0cf6a5d3e31036aa3')
+sha256sums=('c5f61980aad626765689b83e794e08906bde46d3e60e14c0f7a1d912933e908b')
 
 package() {
   cd "$srcdir"
