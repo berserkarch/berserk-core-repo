@@ -1,0 +1,7 @@
+#!/bin/sh
+
+xrdb merge ~/.Xresources
+xbacklight -set 10 &
+picom &
+
+while type bdwm >/dev/null; do bdwm && continue || break; done

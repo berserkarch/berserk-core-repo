@@ -1,0 +1,13 @@
+# berserk-config-dwm.install
+post_install() {
+  dconf update
+  echo "==> Compiling DWM for your system..."
+  cd /usr/share/berserkarch/dwm
+  make clean
+  make install
+  echo "==> DWM compiled and installed to /usr/local/bin/dwm"
+}
+
+post_upgrade() {
+  post_install
+}

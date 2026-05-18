@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=dwm
+Comment=Berserk DWM
+Exec=/usr/share/berserkarch/scripts/launch-dwm
+Type=Application

@@ -1,0 +1,43 @@
+# Maintainer: Gaurav Raj (@thehackersbrain) <gaurav@thehackersbrain.dev>
+
+pkgname=berserk-config-dwm
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Default DWM configuration for BerserkArch"
+arch=('any')
+url="https://github.com/berserkarch/berserk-core-repo"
+license=('GPL3')
+depends=('dash' 'sddm' 'xclip' 'xdotool' 'qt5ct' 'qt6ct'
+  'xdg-desktop-portal-gtk' 'dunst' 'xsettingsd' 'polkit-kde-agent'
+  'imlib2' 'picom' 'feh' 'acpi' 'rofi' 'berserk-rofi'
+  'wmname' 'libx11' 'libxft' 'libxinerama' 'xorg-xsetroot')
+
+source=()
+sha256sums=()
+
+install="$pkgname.install"
+
+package() {
+  install -d "${pkgdir}/etc/skel/.config"
+  install -d "${pkgdir}/usr/share/berserkarch/"
+
+  cp -r "${startdir}/configs/dwm/" "${pkgdir}/usr/share/berserkarch/"
+
+  install -Dm755 "${startdir}/configs/scripts/launch-dwm" "${pkgdir}/usr/share/berserkarch/scripts/launch-dwm"
+  install -Dm755 "${startdir}/configs/scripts/fetch" "${pkgdir}/usr/share/berserkarch/scripts/fetch"
+
+  cp -r "${startdir}/configs/dunst" "${pkgdir}/etc/skel/.config/"
+  cp -r "${startdir}/configs/qt5ct" "${pkgdir}/etc/skel/.config/"
+  cp -r "${startdir}/configs/qt6ct" "${pkgdir}/etc/skel/.config/"
+  cp -r "${startdir}/configs/dwmbar" "${pkgdir}/etc/skel/.config/"
+  cp -r "${startdir}/configs/gtk-3.0" "${pkgdir}/etc/skel/.config/"
+  cp -r "${startdir}/configs/gtk-4.0" "${pkgdir}/etc/skel/.config/"
+  cp -r "${startdir}/configs/xsettingsd" "${pkgdir}/etc/skel/.config/"
+  cp -r "${startdir}/configs/nwg-look" "${pkgdir}/etc/skel/.config/"
+  cp -r "${startdir}/configs/dconf" "${pkgdir}/etc/"
+
+  install -Dm644 "${startdir}/configs/gtkrc-2.0" "${pkgdir}/etc/skel/.gtkrc-2.0"
+  install -Dm644 "${startdir}/configs/picom.conf" "${pkgdir}/etc/skel/.config/picom/picom.conf"
+  install -Dm644 "${startdir}/configs/xprofile" "${pkgdir}/etc/skel/.xprofile"
+  install -Dm644 "${startdir}/configs/dwm.desktop" "${pkgdir}/usr/share/xsessions/dwm.desktop"
+}
