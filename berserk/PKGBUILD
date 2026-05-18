@@ -3,7 +3,7 @@
 pkgname=berserk
 pkgver=0.1.0
 _pkgver=0.2.1
-pkgrel=1
+pkgrel=3
 pkgdesc='Offensive security tools and container manager for BerserkArch'
 arch=('any')
 url='https://github.com/thehackersbrain/berserk'
