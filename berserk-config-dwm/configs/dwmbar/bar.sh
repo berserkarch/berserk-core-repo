@@ -28,8 +28,8 @@ pkg_updates() {
 }
 
 battery() {
-  [ -d /sys/class/power_supply/BAT1 ] || return
-  val="$(cat /sys/class/power_supply/BAT1/capacity)"
+  [ -d /sys/class/power_supply/BAT0 ] || return
+  val="$(cat /sys/class/power_supply/BAT0/capacity)"
   printf "^c$black^ ^b$red^ BAT"
   printf "^c$white^ ^b$grey^ $val%% ^b$black^"
 }
