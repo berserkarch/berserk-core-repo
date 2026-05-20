@@ -90,12 +90,12 @@ static const char *colors[][3] = {
 static char *tags[] = {"", "", "", "", "",
                        "6",   "7",   "8",   "9",   "10"};
 
-static const char *eww[] = {"eww",  "-c",  "/home/siduck/.config/chadwm/eww",
-                            "open", "eww", NULL};
+// static const char *eww[] = {"eww",  "-c",  "/home/siduck/.config/chadwm/eww",
+//                             "open", "eww", NULL};
 
 static const Launcher launchers[] = {
     /* command     name to display */
-    {eww, ""},
+    // {eww, ""},
 };
 
 static const int tagschemes[] = {SchemeTag,  SchemeTag1, SchemeTag2, SchemeTag3,
@@ -181,10 +181,7 @@ static const Key keys[] = {
     {0, XF86XK_MonBrightnessDown, spawn, {.v = light_down}},
 
     // screenshot fullscreen and cropped
-    {MODKEY | ControlMask, XK_u, spawn,
-     SHCMD("maim | xclip -selection clipboard -t image/png")},
-    {MODKEY, XK_u, spawn,
-     SHCMD("maim --select | xclip -selection clipboard -t image/png")},
+    {MODKEY, XK_u, spawn, SHCMD("slaunch")},
 
     {MODKEY, XK_space, spawn, SHCMD("rlaunch")}, // launching rofi
     {MODKEY, XK_Return, spawn, SHCMD("kitty")},
@@ -263,7 +260,7 @@ static const Key keys[] = {
     {MODKEY | ShiftMask, XK_w, setborderpx, {.i = default_border}},
 
     // kill dwm
-    {MODKEY | ControlMask, XK_q, spawn, SHCMD("killall bar.sh chadwm")},
+    {MODKEY | ControlMask, XK_q, spawn, SHCMD("killall bar.sh bdwm")},
 
     // kill window
     {MODKEY, XK_q, killclient, {0}},
