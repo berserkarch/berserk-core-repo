@@ -90,12 +90,12 @@ static const char *colors[][3] = {
 static char *tags[] = {"", "", "", "", "",
                        "6",   "7",   "8",   "9",   "10"};
 
-// static const char *eww[] = {"eww",  "-c",  "/home/siduck/.config/chadwm/eww",
-//                             "open", "eww", NULL};
+static const char *eww[] = {"eww",  "-c",  "/home/user/.config/chadwm/eww",
+                            "open", "eww", NULL};
 
 static const Launcher launchers[] = {
     /* command     name to display */
-    // {eww, ""},
+    {eww, ""},
 };
 
 static const int tagschemes[] = {SchemeTag,  SchemeTag1, SchemeTag2, SchemeTag3,
