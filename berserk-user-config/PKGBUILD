@@ -2,7 +2,7 @@
 
 pkgname=berserk-user-config
 pkgver=0.1.1
-pkgrel=8
+pkgrel=9
 pkgdesc="Default User configuration for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/berserk-config-xfce"
@@ -37,6 +37,7 @@ package() {
   cp -r "${srcdir}/berserk-config-xfce/fonts" "${pkgdir}/usr/share/"
   cp -r "${srcdir}/berserk-config-xfce"/qt{5,6}ct "${pkgdir}/etc/xdg/"
   install -Dm644 "${srcdir}/berserk-config-xfce/berserk-environment" "${pkgdir}/etc/berserk-environment"
+  install -Dm644 "${srcdir}/berserk-config-xfce/.vimrc" "${pkgdir}/root/.vimrc"
 
   cp -r "${pkgdir}/etc/skel/" "${pkgdir}/${berserkconfig}/home/"
   cp -r "${srcdir}/berserk-config-xfce/data/" "${pkgdir}/${berserkconfig}/"
