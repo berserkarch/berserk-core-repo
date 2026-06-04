@@ -2,8 +2,8 @@
 
 pkgname=berserk
 pkgver=0.1.0
-_pkgver=0.2.4
-pkgrel=5
+_pkgver=0.2.5
+pkgrel=6
 pkgdesc='Offensive security tools and container manager for BerserkArch'
 arch=('any')
 url='https://github.com/thehackersbrain/berserk'
@@ -14,7 +14,7 @@ source=(
   "${pkgname}-linux-amd64::https://github.com/thehackersbrain/berserk/releases/download/v${_pkgver}/${pkgname}-linux-amd64"
 )
 
-sha256sums=('5c99381b27e9cbfadd850c1bf5a0c9c0542fa40683443f2009de7fc92fab2cf5')
+sha256sums=('00156bd68fcd63cc6ace6c5f7ee52fdc15f7a3a5a1869c751e7dce42a071dc01')
 
 package() {
   cd "$srcdir"
