@@ -2,12 +2,12 @@
 
 pkgname=berserk-grub-theme
 pkgver=0.1.0
-pkgrel=7
+pkgrel=8
 pkgdesc="Default grub2 bootloader theme for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/vigarch-core-repo/"
 license=('GPL3')
-depends=('grub')
+depends=('grub' 'update-grub')
 options=(!strip !emptydirs)
 install='theme.install'
 
@@ -17,4 +17,5 @@ prepare() {
 
 package() {
   (find berserk -type f -exec install -Dm 644 "{}" "$pkgdir/usr/share/grub/themes/{}" \;)
+  install -Dm644 "$startdir/files/berserkarch.cfg" "$pkgdir/etc/default/grub.d/berserkarch.cfg"
 }
