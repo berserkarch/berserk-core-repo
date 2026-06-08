@@ -1,8 +1,7 @@
 # Maintainer: Gaurav Raj (@thehackersbrain) <gaurav@thehackersbrain.dev>
 
 pkgname=falconia
-pkgver=0.1.0
-_pkgver=0.1.2
+pkgver=0.1.2
 pkgrel=1
 pkgdesc='Terminal based installer for BerserkArch'
 arch=('any')
@@ -11,7 +10,7 @@ license=(GPLv3)
 depends=(go)
 
 source=(
-  "${pkgname}-linux-amd64::https://github.com/berserkarch/falconia/releases/download/v${_pkgver}/${pkgname}-linux-amd64"
+  "${pkgname}-linux-amd64::https://github.com/berserkarch/falconia/releases/download/v${pkgver}/${pkgname}-linux-amd64"
 )
 
 sha256sums=('f8889f36dc3a0e1b2b05044d069713cef398a4826ec1b58a8972a735cb723864')
