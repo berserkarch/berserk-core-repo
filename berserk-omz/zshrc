@@ -106,6 +106,7 @@ alias ls=exa
 export PATH="$PATH:$HOME/go/bin:/$HOME/.local/bin:$HOME/.cargo/bin:$GEM_HOME/bin"
 
 export PYO3_USE_ABI3_FORWARD_COMPATIBILITY=1 # python specific setup
+export MANPAGER='vim -M +MANPAGER -'
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
