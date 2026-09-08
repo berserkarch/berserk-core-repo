@@ -9,8 +9,8 @@ url='https://github.com/ohmyzsh/ohmyzsh'
 license=('GPL')
 depends=('oh-my-zsh-git' 'zsh-syntax-highlighting' 'zsh-autosuggestions')
 source=('zshrc' 'berserkarch.zsh-theme')
-sha256sums=('f2121505b1a86457d9d2b98bb19894c501426720a5e0cdd1b48859ec03cebaad'
-  '3dacdf7ac86c2d297ad360ab7cc6b39312c12bee40d9dd8302dbcf4f8be527f0')
+sha256sums=('291cca9c6dccf8b61ac5fc4e4090557b48c25ce794a3c3f271bb578cd2b31bb8'
+            '3dacdf7ac86c2d297ad360ab7cc6b39312c12bee40d9dd8302dbcf4f8be527f0')
 install="$pkgname.install"
 
 package() {
