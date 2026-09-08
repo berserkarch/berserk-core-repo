@@ -110,3 +110,4 @@ export MANPAGER='vim -M +MANPAGER -'
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+export VIRTUAL_ENV_DISABLE_PROMPT=1
