@@ -2,12 +2,12 @@
 
 pkgname=berserk-config-i3wm
 pkgver=0.1.0
-pkgrel=2
+pkgrel=3
 pkgdesc="Default Hyprlandconfiguration for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/berserk-config-hyprland"
 license=('GPL3')
-depends=('i3-wm' 'sddm' 'xclip' 'xdotool' 'qt5ct' 'qt6ct' 'xdg-desktop-portal-gtk' 'dunst' 'xsettingsd' 'xcompmgr' 'polkit-kde-agent')
+depends=('i3-wm' 'sddm' 'xclip' 'xdotool' 'qt5ct' 'qt6ct' 'xdg-desktop-portal-gtk' 'dunst' 'xsettingsd' 'picom' 'polkit-kde-agent' 'upower' 'quickshell')
 
 source=()
 sha256sums=()
@@ -28,6 +28,8 @@ package() {
   cp -r "${startdir}/user/gtk-4.0" "${pkgdir}/etc/skel/.config/"
   cp -r "${startdir}/user/xsettingsd" "${pkgdir}/etc/skel/.config/"
   cp -r "${startdir}/user/nwg-look" "${pkgdir}/etc/skel/.config/"
+  cp -r "${startdir}/user/quickshell" "${pkgdir}/etc/skel/.config/"
   cp -r "${startdir}/user/dconf" "${pkgdir}/etc/"
   install -Dm644 "${startdir}/user/gtkrc-2.0" "${pkgdir}/etc/skel/.gtkrc-2.0"
+  install -Dm644 "${startdir}/user/picom.conf" "${pkgdir}/etc/skel/.config/picom.conf"
 }

@@ -1,5 +1,6 @@
 post_install() {
   dconf update
+  systemctl enable --now upower
 }
 
 post_upgrade() {

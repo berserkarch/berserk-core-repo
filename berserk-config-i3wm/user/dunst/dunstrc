@@ -15,7 +15,7 @@ gap_size = 5
 padding = 20
 horizontal_padding = 20
 text_icon_padding = 20
-frame_width = 0
+frame_width = 2
 separator_height = 10
 separator_color = frame
 corner_radius = 0
@@ -36,7 +36,7 @@ hide_duplicate_count = false
 transparency = 0
 
 ### Text
-font = "JetBrains Nerd Font Medium 11"
+font = "Iosevka 11"
 line_height = 2
 markup = full
 format = "%s %n %b"
@@ -82,25 +82,34 @@ mouse_right_click = close_all
 [experimental]
 per_monitor_dpi = false
 
-# Get colors from Flavours ------------------------------------------
-#                                                                   -
+# Theme -------------------------------------------------------------
+# Matches the quickshell bar (tundra) + i3 windows: base bg #1a1b26,
+# text tundra white #E6EDF3, per-urgency accent frames in the tundra
+# palette (low=green, normal=blue, critical=red), muted 50% toward grey
+# so the frames aren't too bright.
 #--------------------------------------------------------------------
 
-# Start Flavours
-frame_color = "#1E2128"
+# Default accent (normal-urgency blue) - used before an urgency section applies.
+frame_color = "#6A749F"
+highlight = "#6A749F"
 
-[base16_low]
-    msg_urgency = low
-    background = "#1E2128"
-    foreground = "#a7a7a7"
+[urgency_low]
+    background = "#1a1b26"
+    foreground = "#E6EDF3"
+    frame_color = "#6C7D7A"
+    highlight = "#6C7D7A"
+    timeout = 5
 
-[base16_normal]
-    msg_urgency = normal
-    background = "#1E2128"
-    foreground = "#a7a7a7"
+[urgency_normal]
+    background = "#1a1b26"
+    foreground = "#E6EDF3"
+    frame_color = "#6A749F"
+    highlight = "#6A749F"
+    timeout = 8
 
-[base16_critical]
-    msg_urgency = critical
-    background = "#"
-    foreground = "#a7a7a7"
-# End Flavours
+[urgency_critical]
+    background = "#1a1b26"
+    foreground = "#E6EDF3"
+    frame_color = "#9E6A6E"
+    highlight = "#9E6A6E"
+    timeout = 0

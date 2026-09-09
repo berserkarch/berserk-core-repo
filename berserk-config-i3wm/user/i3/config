@@ -11,23 +11,22 @@
 
 set $mod Mod4
 
-# borders and gaps
-for_window [class=".*"] border pixel 0
-gaps inner 4
-gaps outer 0
+# borders and gaps - synced to dwm (config.def.h: borderpx=2, gappih/iv/oh/ov=3)
+for_window [class=".*"] border pixel 2
+gaps inner 2
+gaps outer 1
 smart_borders on
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango: JetBrainsMono Nerd Font 8
+# Font synced to dwm (config.def.h fonts[]: "Iosevka:size=10")
+font pango: Iosevka 10
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id feh --bg-fill "/usr/share/backgrounds/berserkarch/berserkarch.png"
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id "/home/$USER/.config/polybar/launch.sh"
+exec --no-startup-id qs
 exec --no-startup-id xsettingsd
-exec --no-startup-id xcompmgr -c -r7 -o.75 -l-7 -t-7 -f -F -I 0.2 -O 0.2
+exec --no-startup-id picom
 exec --no-startup-id dunst -config "/home/$USER/.config/dunst/dunstrc"
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 
@@ -61,8 +60,9 @@ bindsym $mod+Return exec kitty
 # kill focused window
 bindsym $mod+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+space exec --no-startup-id dmenu_run
+# start dmenu (a program launcher) - themed to match dwm's tokyonight
+# (bg #1a1b26, fg #a9b1d6, selected bg blue #7aa2f7 on dark text, Iosevka 10)
+bindsym $mod+space exec --no-startup-id dmenu_run -fn "Iosevka:size=10" -nb "#1a1b26" -nf "#a9b1d6" -sb "#7aa2f7" -sf "#1a1b26"
 bindsym $mod+d exec "bash /usr/share/berserkarch/scripts/rlaunch"
 bindsym $mod+Shift+p exec "bash /usr/share/berserkarch/scripts/slaunch"
 
@@ -169,8 +169,11 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-# toggle polybar
-bindsym $mod+b exec polybar-msg cmd toggle
+# toggle quickshell bar
+bindsym $mod+b exec qs ipc call bar toggle
+
+# toggle quickshell reverse-shell cheatsheet popup
+bindsym $mod+s exec qs ipc call revshell toggle
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -200,13 +203,13 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # class                 border  bground text    indicator child_border
-client.focused          #83A8EC #12121F #D4D7FF #83A8EC   #8983D8
-client.focused_inactive #D4D7FF #12121F #D4D7FF #D4D7FF   #D0D3FF
-client.unfocused        #D0D3FF #12121F #D4D7FF #D0D3FF   #CCCFFF
-client.urgent           #DE688A #DA587D #D4D7FF #D0D3FF   #DA587D
-client.placeholder      #12121F #12121F #D4D7FF #12121F   #222236
+client.focused          #414868 #1a1b26 #a9b1d6 #414868   #414868
+client.focused_inactive #24283b #1a1b26 #a9b1d6 #24283b   #24283b
+client.unfocused        #24283b #1a1b26 #565f89 #24283b   #24283b
+client.urgent           #f7768e #f7768e #1a1b26 #f7768e   #f7768e
+client.placeholder      #1a1b26 #1a1b26 #a9b1d6 #1a1b26   #24283b
 
-client.background       #12121F
+client.background       #1a1b26
 
 ## floating window rule for certain applications
 for_window [title="^Virtual Machine Manager$"] floating enable
