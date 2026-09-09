@@ -49,7 +49,11 @@ show_indicators = no
 
 ### Icons
 enable_recursive_icon_lookup = true
-# icon_theme = Boston
+# Match the system-wide icon theme (GTK 2/3/4, qt5ct/qt6ct, dconf all use this).
+# With enable_recursive_icon_lookup, icon_theme takes a freedesktop theme name
+# and follows its Inherits chain (Flat-Remix -> Adwaita -> hicolor) for fallback.
+icon_theme = "Flat-Remix-Blue-Dark"
+# icon_path is the legacy mechanism; unused when icon_theme + recursive lookup is set.
 # icon_path = /home/duane/.icons/Boston/16/status/:/home/duane/.icons/Boston/16/devices/
 icon_position = left
 min_icon_size = 28

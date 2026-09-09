@@ -2,12 +2,12 @@
 
 pkgname=berserk-config-i3wm
 pkgver=0.1.0
-pkgrel=4
+pkgrel=5
 pkgdesc="Default Hyprlandconfiguration for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/berserk-config-hyprland"
 license=('GPL3')
-depends=('i3-wm' 'sddm' 'xclip' 'xdotool' 'qt5ct' 'qt6ct' 'xdg-desktop-portal-gtk' 'dunst' 'xsettingsd' 'picom' 'polkit-kde-agent' 'upower' 'quickshell')
+depends=('i3-wm' 'sddm' 'xclip' 'xdotool' 'qt5ct' 'qt6ct' 'xdg-desktop-portal-gtk' 'dunst' 'xsettingsd' 'picom' 'polkit-kde-agent' 'upower' 'quickshell' 'i3lock-color')
 
 source=()
 sha256sums=()
