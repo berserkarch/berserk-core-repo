@@ -22,8 +22,10 @@ Badge {
     }
 
     rightText: {
-        const h = clock.hours.toString().padStart(2, "0");
+        const h24 = clock.hours;
+        const h12 = (h24 % 12) || 12;            // 0 -> 12
         const m = clock.minutes.toString().padStart(2, "0");
-        return h + ":" + m;
+        const suffix = h24 < 12 ? "AM" : "PM";
+        return h12 + ":" + m + " " + suffix;
     }
 }

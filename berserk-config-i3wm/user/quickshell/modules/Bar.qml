@@ -50,7 +50,7 @@ PanelWindow {
             Network {}
             Ip {}
             Clock {}
-            Tray {}
+            Tray { barWindow: bar }
             Notifications {}
         }
     }

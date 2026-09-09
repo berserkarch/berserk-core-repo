@@ -2,7 +2,7 @@
 
 pkgname=berserk-config-i3wm
 pkgver=0.1.0
-pkgrel=5
+pkgrel=6
 pkgdesc="Default Hyprlandconfiguration for Berserk Arch"
 arch=('any')
 url="https://github.com/thehackersbrain/berserk-config-hyprland"
