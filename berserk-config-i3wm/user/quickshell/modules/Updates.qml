@@ -37,7 +37,10 @@ Text {
         cursorShape: Qt.PointingHandCursor
         onEntered: root.hovered = true
         onExited: root.hovered = false
-        onClicked: Popups.toggle("updates", root.mapToItem(null, root.width / 2, 0).x)
+        onClicked: {
+            Popups.toggle("updates", root.mapToItem(null, root.width / 2, 0).x);
+            if (!proc.running) proc.running = true;
+        }
     }
 
     text: {

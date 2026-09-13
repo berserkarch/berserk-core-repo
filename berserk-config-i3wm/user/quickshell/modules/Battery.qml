@@ -11,7 +11,7 @@ Badge {
     leftText: "BAT"
     leftBg: Colors.badgeRed
     leftFg: Colors.badgeBlack
-    rightText: device ? Math.round(device.percentage) + "%" : ""
+    rightText: device ? Math.round(device.percentage * 100) + "%" : ""
     rightBg: Colors.badgeGrey
     rightFg: Colors.badgeWhite
 }
